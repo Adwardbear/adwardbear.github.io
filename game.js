@@ -44,4 +44,3 @@ setInterval(function () {
 
 document.getElementById("help").onclick =    function() {
         return alert('Lemon cost x2 \n News cost x4');
-};
