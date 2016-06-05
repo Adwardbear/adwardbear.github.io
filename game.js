@@ -36,5 +36,6 @@ function buyProfit2(){
 window.setInterval(function(){
 	
 	cookieClick(cursors);
+	cookieClick(profit2);
 	
 }, 1000);
