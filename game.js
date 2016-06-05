@@ -41,3 +41,7 @@ setInterval(function () {
     money += auto_money;
     update_total_money(); 
 }, 1000); //once per second use the auto clickers
+
+document.getElementById("help").onclick =    function() {
+        return alert('Lemon cost x2 \n News cost x4');
+};
