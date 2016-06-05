@@ -28,7 +28,7 @@ document.getElementById("newspaper").onclick =    function() {
     }
     auto_money++; 
     money -= cost;
-    cost = Math.pow(2, auto_money);  
+    cost = Math.pow(4, auto_money);  
     var e = document.getElementById("money_per_second");
     e.innerHTML = 'Money per second: ' + auto_money; 
     var e2 = document.getElementById("newspaper");
