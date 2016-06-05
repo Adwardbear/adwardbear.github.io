@@ -20,6 +20,18 @@ function buyCursor(){
     document.getElementById('cursorCost').innerHTML = nextCost;  //updates the cursor cost for the user
 };
 
+function buyProfit2(){
+	var profit2Cost = Math.floor(20 * Math.pow(1.1,profit2));
+	if(cookies >= profit2Cost){
+		profit2 = profit2 + 1;
+		cookies = cookies - profit2Cost;
+		document.getElementById('profit2').innerHTML = profit2;
+		document.getElementById('cookies').innerHTML = cookies;
+	};
+	var nextCost2 = Math.floor(20 * Math.pow(1,1,profit2));
+	document.getElementById('profit2Cost').innerHTML = nextCost2;
+};
+
 window.setInterval(function(){
 	
 	cookieClick(cursors);
