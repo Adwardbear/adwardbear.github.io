@@ -21,7 +21,7 @@ document.getElementById("profit1").onclick =    function() {
     var e2 = document.getElementById("profit1");
     e2.innerHTML = 'profit1 [PH] Cost: ' + lcost;
     update_total_money();
-};
+}
 
 document.getElementById("profit2").onclick =    function() {  
     if (money < cost) {
@@ -35,7 +35,7 @@ document.getElementById("profit2").onclick =    function() {
     var e2 = document.getElementById("profit2");
     e2.innerHTML = 'profit2 [PH] Cost: ' + cost;
     update_total_money();
-};
+}
 
 setInterval(function () { 
     money += auto_money;
@@ -44,3 +44,4 @@ setInterval(function () {
 
 document.getElementById("help").onclick =    function() {
         return alert('profit1 cost x2 \nNews cost x4');
+};
