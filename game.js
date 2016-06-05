@@ -75,15 +75,16 @@ function update_view() {
     update_total_clicks();
     update_workers();
 }
-	function save_game() {
-   	localStorage['clickclick_save'] = btoa(JSON.stringify(player));
-	}
-    
-	function load_game() {
-        if (!localStorage['clickclick_save']) return;
-    	var save_data = JSON.parse(atob(localStorage['clickclick_save']));
+function load_game() {
+    var save_data = get_cookie('clickclick_save');
+    console.log(save_data);
+    if (!save_data) return;
+    console.log(save_data);
     player = save_data;
     update_view();
+}
+function save_game() {
+    set_cookie('clickclick_save', player);
 }
 //click events
 document.getElementById("click").onclick =    function() {  
