@@ -5,7 +5,7 @@ var cost = 1; //the cost of this should increase exponentially
 
 function update_total_money() {
     var e = document.getElementById("total_money");
-    e.innerHTML = 'Clicks: ' + clicks;
+    e.innerHTML = 'Money: ' + clicks;
 }
 
 document.getElementById("profit1").onclick =    function() {  
@@ -15,8 +15,8 @@ document.getElementById("profit1").onclick =    function() {
     auto_clicks++; 
     clicks -= cost;
     cost = Math.pow(2, auto_clicks);  
-    var e = document.getElementById("clicks_per_second");
-    e.innerHTML = 'Clicks per second: ' + auto_clicks; 
+    var e = document.getElementById("MPS");
+    e.innerHTML = 'Money per second: ' + auto_clicks; 
     var e2 = document.getElementById("profit1");
     e2.innerHTML = 'Profit1 - Cost: ' + cost;
     update_total_clicks();
