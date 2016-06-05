@@ -19,7 +19,7 @@ document.getElementById("lemon").onclick =    function() {
     var e = document.getElementById("money_per_second");
     e.innerHTML = 'Money per second: ' + auto_money; 
     var e2 = document.getElementById("lemon");
-    e2.innerHTML = 'Lemonaid stand [PH] ' + lcost;
+    e2.innerHTML = 'Lemonaid stand [PH] Cost: ' + lcost;
     update_total_money();
 };
 
@@ -33,7 +33,7 @@ document.getElementById("newspaper").onclick =    function() {
     var e = document.getElementById("money_per_second");
     e.innerHTML = 'Money per second: ' + auto_money; 
     var e2 = document.getElementById("newspaper");
-    e2.innerHTML = 'Newspaper stand [PH] ' + cost;
+    e2.innerHTML = 'Newspaper stand [PH] Cost: ' + cost;
     update_total_money();
 };
 
