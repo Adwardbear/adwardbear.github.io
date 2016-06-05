@@ -18,7 +18,7 @@ document.getElementById("profit1").onclick =    function() {
     money -= cost1;
     cost1 = Math.pow(2, auto1);  
     var e = document.getElementById("MPS");
-    e.innerHTML = 'Money per second: ' + auto1; 
+    e.innerHTML = 'Money per second: ' + auto1 + auto2; 
     var e2 = document.getElementById("profit1");
     e2.innerHTML = 'Profit1 - Cost: ' + cost1;
     update_total_money();
@@ -32,13 +32,13 @@ document.getElementById("profit2").onclick =    function() {
     money -= cost2;
     cost2 = Math.pow(2, auto2);  
     var e = document.getElementById("MPS");
-    e.innerHTML = 'Money per second: ' + auto1; 
+    e.innerHTML = 'Money per second: ' + auto1 + auto2; 
     var e2 = document.getElementById("profit2");
     e2.innerHTML = 'Profit2 - Cost: ' + cost2;
     update_total_money();
 };
 
 setInterval(function () { 
-    money += auto1;
+    money += auto1 + auto2;
     update_total_money(); 
 }, 10); //once per second use the auto clickers
