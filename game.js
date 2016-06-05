@@ -1,4 +1,4 @@
-var clicks = 0; //increment this by one every click
+var clicks = 1; //increment this by one every click
 var auto_clicks = 0; //automatically click once per second
 var cost = 1; //the cost of this should increase exponentially
 
