@@ -9,7 +9,7 @@ function update_total_money() {
     e.innerHTML = 'Money: ' + money;
 }
 
-document.getElementById("lemon").onclick =    function() {  
+document.getElementById("profit1").onclick =    function() {  
     if (money < lcost) {
         return alert('need more money.');
     }
