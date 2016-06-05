@@ -15,7 +15,7 @@ document.getElementById("lemon").onclick =    function() {
     }
     auto_money++; 
     money -= lcost;
-    cost = Math.pow(2, auto_money);  
+    lcost = Math.pow(2, auto_money);  
     var e = document.getElementById("money_per_second");
     e.innerHTML = 'Money per second: ' + auto_money; 
     var e2 = document.getElementById("lemon");
