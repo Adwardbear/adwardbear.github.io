@@ -20,7 +20,7 @@ document.getElementById("buy_click").onclick =    function() {
     clicks -= cost;
     cost = Math.pow(2, auto_clicks);  
     var e = document.getElementById("clicks_per_second");
-    e.innerHTML = 'Clicks per second: ' + auto_clicks; 
+    e.innerHTML = 'Money per second: ' + auto_clicks; 
     var e2 = document.getElementById("buy_click");
     e2.innerHTML = 'Newspaper stand [PH] ' + cost;
     update_total_clicks();
@@ -29,4 +29,4 @@ document.getElementById("buy_click").onclick =    function() {
 setInterval(function () { 
     clicks += auto_clicks;
     update_total_clicks(); 
-}, 1000); //once per second use the auto clickers
+}, 100); //once per second use the auto clickers
