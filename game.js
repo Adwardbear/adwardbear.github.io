@@ -1,27 +1,32 @@
-var money = 1;
-var auto1 = 0;
-var cost1 = 1;
+var clicks = 0; //increment this by one every click
+var auto_clicks = 0; //automatically click once per second
+var cost = 1; //the cost of this should increase exponentially
 
-fuction update_total_money() {
-	var e = document.getElementById("total_money");
-	e.innerHTML = 'Money: ' + money;
+
+function update_total_clicks() {
+    var e = document.getElementById("total_clicks");
+    e.innerHTML = 'Clicks: ' + clicks;
 }
 
-document.getElementById("profit1").onclick = function() {
-	if (money < cost1) {
-		return alert('Need more money.');
-	}
-	auto1++;
-	money -= cost1;
-	cost1 = Math.pow(2, auto1);
-	var e = document.getElementById("MPS");
-	e.innerHTML = 'MPS: ' + auto1;
-	var e2 = document.getElementById("profit1");
-	e2.innerHTML = 'Profit1 - Cost: ' + cost1;
-	update_total_money();
+document.getElementById("click").onclick =    function() {  
+    clicks++; 
+    update_total_clicks(); //updates the text
+};
+document.getElementById("buy_click").onclick =    function() {  
+    if (clicks < cost) {
+        return alert('need more clicks.');
+    }
+    auto_clicks++; 
+    clicks -= cost;
+    cost = Math.pow(2, auto_clicks);  
+    var e = document.getElementById("clicks_per_second");
+    e.innerHTML = 'Clicks per second: ' + auto_clicks; 
+    var e2 = document.getElementById("buy_click");
+    e2.innerHTML = 'Buy an autoclick for ' + cost;
+    update_total_clicks();
 };
 
-setInterval(function () {
-	money += auto1;
-	update_total_money();
-}, 1000);
+setInterval(function () { 
+    clicks += auto_clicks;
+    update_total_clicks(); 
+}, 1000); //once per second use the auto clickers
