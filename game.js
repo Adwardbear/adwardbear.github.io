@@ -1,6 +1,6 @@
-var clicks = 0; //increment this by one every click
+var clicks = 2; //increment this by one every click
 var auto_clicks = 0; //automatically click once per second
-var cost = 1; //the cost of this should increase exponentially
+var cost = 2; //the cost of this should increase exponentially
 
 
 function update_total_clicks() {
