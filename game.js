@@ -7,6 +7,7 @@ function cookieClick(number){
 };
 
 var cursors = 0;
+var profit2 = 0;
 
 function buyCursor(){
     var cursorCost = Math.floor(10 * Math.pow(1.1,cursors));     //works out the cost of this cursor
