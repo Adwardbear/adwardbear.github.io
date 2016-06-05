@@ -3,8 +3,8 @@ var auto_clicks = 0; //automatically click once per second
 var cost = 1; //the cost of this should increase exponentially
 
 
-function update_total_clicks() {
-    var e = document.getElementById("total_clicks");
+function update_total_money() {
+    var e = document.getElementById("total_money");
     e.innerHTML = 'Clicks: ' + clicks;
 }
 
@@ -24,5 +24,5 @@ document.getElementById("profit1").onclick =    function() {
 
 setInterval(function () { 
     clicks += auto_clicks;
-    update_total_clicks(); 
+    update_total_money(); 
 }, 10); //once per second use the auto clickers
