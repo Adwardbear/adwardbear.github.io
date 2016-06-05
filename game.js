@@ -15,7 +15,7 @@ document.getElementById("profit1").onclick =    function() {
     }
     auto_money++; 
     money -= cost1;
-    cost1 = Math.pow(2, auto_money);  
+    cost1 = Math.pow(2, cost1);  
     var e = document.getElementById("money_per_second");
     e.innerHTML = 'Money per second: ' + auto_money; 
     var e2 = document.getElementById("profit1");
