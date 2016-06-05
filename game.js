@@ -14,7 +14,7 @@ document.getElementById("click").onclick =    function() {
 };
 document.getElementById("buy_click").onclick =    function() {  
     if (clicks < cost) {
-        return alert('need more clicks.');
+        return alert('need more money.');
     }
     auto_clicks++; 
     clicks -= cost;
@@ -22,7 +22,7 @@ document.getElementById("buy_click").onclick =    function() {
     var e = document.getElementById("clicks_per_second");
     e.innerHTML = 'Clicks per second: ' + auto_clicks; 
     var e2 = document.getElementById("buy_click");
-    e2.innerHTML = 'Buy an autoclick for ' + cost;
+    e2.innerHTML = 'Newspaper stand [PH] ' + cost;
     update_total_clicks();
 };
 
