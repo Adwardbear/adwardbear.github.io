@@ -7,8 +7,7 @@ fuction update_total_money() {
 	e.innerHTML = 'Money: ' + money;
 }
 
-document.getElementById("profit1").onclick =
-function() {
+document.getElementById("profit1").onclick = function() {
 	if (money < cost1) {
 		return alert('Need more money.');
 	}
