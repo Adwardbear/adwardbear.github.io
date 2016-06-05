@@ -9,7 +9,7 @@ function update_total_money() {
 }
 
 document.getElementById("lemon").onclick =    function() {  
-    if (clicks < cost) {
+    if (money < cost) {
         return alert('need more money.');
     }
     auto_money++; 
@@ -23,7 +23,7 @@ document.getElementById("lemon").onclick =    function() {
 };
 
 document.getElementById("newspaper").onclick =    function() {  
-    if (clicks < cost) {
+    if (money < cost) {
         return alert('need more money.');
     }
     auto_money++; 
