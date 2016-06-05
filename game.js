@@ -18,11 +18,11 @@ document.getElementById("profit1").onclick =    function() {
     var e = document.getElementById("clicks_per_second");
     e.innerHTML = 'Clicks per second: ' + auto_clicks; 
     var e2 = document.getElementById("profit1");
-    e2.innerHTML = 'Buy an autoclick for ' + cost;
+    e2.innerHTML = 'Profit1 - Cost: ' + cost;
     update_total_clicks();
 };
 
 setInterval(function () { 
     clicks += auto_clicks;
     update_total_clicks(); 
-}, 1000); //once per second use the auto clickers
+}, 10); //once per second use the auto clickers
