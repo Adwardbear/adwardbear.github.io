@@ -15,15 +15,15 @@ document.getElementById("lemon").onclick =    function() {
     }
     auto_money++; 
     money -= lcost;
-    lcost = Math.pow(2, auto_money);  
+    lcost = Math.pow(2, auto_money+1);  
     var e = document.getElementById("money_per_second");
     e.innerHTML = 'Money per second: ' + auto_money; 
-    var e2 = document.getElementById("lemon");
-    e2.innerHTML = 'Lemonaid stand [PH] Cost: ' + lcost;
+    var e2 = document.getElementById("profit1");
+    e2.innerHTML = 'profit1 [PH] Cost: ' + lcost;
     update_total_money();
 };
 
-document.getElementById("newspaper").onclick =    function() {  
+document.getElementById("profit2").onclick =    function() {  
     if (money < cost) {
         return alert('need more money.');
     }
@@ -32,8 +32,8 @@ document.getElementById("newspaper").onclick =    function() {
     cost = Math.pow(4, auto_money);  
     var e = document.getElementById("money_per_second");
     e.innerHTML = 'Money per second: ' + auto_money; 
-    var e2 = document.getElementById("newspaper");
-    e2.innerHTML = 'Newspaper stand [PH] Cost: ' + cost;
+    var e2 = document.getElementById("profit2");
+    e2.innerHTML = 'profit2 [PH] Cost: ' + cost;
     update_total_money();
 };
 
@@ -43,4 +43,4 @@ setInterval(function () {
 }, 1000); //once per second use the auto clickers
 
 document.getElementById("help").onclick =    function() {
-        return alert('Lemon cost x2 \n News cost x4');
+        return alert('profit1 cost x2 \nNews cost x4');
