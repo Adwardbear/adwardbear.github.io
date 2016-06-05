@@ -1,44 +1,27 @@
-var money = 1; //increment this by one every click
-var auto1 = 0; //automatically click once per second
-var cost1 = 1; //the cost of this should increase exponentially
-var auto2 = 0;
-var cost2 = 2;
 
+var cookies = 0;
 
-function update_total_money() {
-    var e = document.getElementById("total_money");
-    e.innerHTML = 'Money: ' + money;
-}
-
-document.getElementById("profit1").onclick =    function() {  
-    if (money < cost1) {
-        return alert('need more money.');
-    }
-    auto1++; 
-    money -= cost1;
-    cost1 = Math.pow(2, auto1);  
-    var e = document.getElementById("MPS");
-    e.innerHTML = 'Money per second: ' + auto1; 
-    var e2 = document.getElementById("profit1");
-    e2.innerHTML = 'Profit1 - Cost: ' + cost1;
-    update_total_money();
+function cookieClick(number){
+    cookies = cookies + number;
+    document.getElementById("cookies").innerHTML = cookies;
 };
 
-document.getElementById("profit2").onclick =    function() {  
-    if (money < cost2) {
-        return alert('need more money.');
-    }
-    auto1++; 
-    money -= cost2;
-    cost2 = Math.pow(2, auto1);  
-    var e = document.getElementById("MPS");
-    e.innerHTML = 'Money per second: ' + auto1; 
-    var e2 = document.getElementById("profit2");
-    e2.innerHTML = 'Profit2 - Cost: ' + cost2;
-    update_total_money();
+var cursors = 0;
+
+function buyCursor(){
+    var cursorCost = Math.floor(10 * Math.pow(1.1,cursors));     //works out the cost of this cursor
+    if(cookies >= cursorCost){                                   //checks that the player can afford the cursor
+        cursors = cursors + 1;                                   //increases number of cursors
+    	cookies = cookies - cursorCost;                          //removes the cookies spent
+        document.getElementById('cursors').innerHTML = cursors;  //updates the number of cursors for the user
+        document.getElementById('cookies').innerHTML = cookies;  //updates the number of cookies for the user
+    };
+    var nextCost = Math.floor(10 * Math.pow(1.1,cursors));       //works out the cost of the next cursor
+    document.getElementById('cursorCost').innerHTML = nextCost;  //updates the cursor cost for the user
 };
 
-setInterval(function () { 
-    money += auto1;
-    update_total_money(); 
-}, 10); //once per second use the auto clickers
+window.setInterval(function(){
+	
+	cookieClick(cursors);
+	
+}, 1000);
