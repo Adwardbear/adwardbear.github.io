@@ -145,6 +145,47 @@ function save(savetype){
 	}
 }
 
+// Load in saved data
+
+function load(loadType){
+	//define load variables
+	var loadVar = {},
+		loadVar2 = {};
+		
+	if (loadType == 'cookie'){
+		//check for cookies
+		if (read_cookie('ad') && read_cookie('ad2')){
+			//set variables to load from
+			loadVar = read_cookie('ad');
+			loadVar2 = read_cookie('ad2');
+			//notify user
+			gameLog('Loaded saved game from cookie');
+			gameLog('Save system switching to localStorage.');
+		} else {
+			console.log('Unable to find cookie');
+			return false;
+		};
+	}
+	
+	if (loadType == 'localStorage'){
+		//check for local storage
+		try {
+			string1 = localStorage.getItem('ad');
+			string2 = localStorage.getItem('ad2');
+		} catch(err) {
+			console.log('Cannot access localStorage - browser may not support localStorage, or storage may be corrupt')
+		}
+		if (string1 && string2){
+			loadVar = JSON.parse(string1);
+			loadVar2 = JSON.parse(string2);
+			//notify user
+			gameLog('Loaded saved game from localStorage')
+		} else {
+			console.log('Unable to find variables in localStorage. Attempting to load cookie.')
+			load('cookie');
+			return false;
+		}
+	}
 
 //Run this code once the page has loaded fully
 window.onload = function() {
