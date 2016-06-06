@@ -13,12 +13,6 @@ function GameSave() {
 	}
 }
 
-var save = {
-    game.money: game.money,
-    this.buildings: this.buildings
-    localStorage.setItem("save",JSON.stringify(save));
-}
-
 //The object declaration for buildings
 function Building() {
 	this.Name = "Lemonade Stand";
@@ -66,6 +60,7 @@ function Build(id) {
 		document.getElementById("Building1Qty").innerHTML = game.buildings[id];
 	}
 }
+
 
 //Run this code once the page has loaded fully
 window.onload = function() {
