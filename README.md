@@ -1,2 +1,4 @@
 # adwardbear.github.io
-site
+bug list
+
+save only loads when clicking an obj
