@@ -16,8 +16,6 @@ function GameSave() {
 function NewGame() {
 	this.name = "Our Game";
 	this.description = "Our Game's Description";
-    this.money;
-    this.buildings;
 	this.numbers = [];
 	for (var i=0;i<10;i++) {
 		this.numbers[i] = i;

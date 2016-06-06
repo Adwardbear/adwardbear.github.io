@@ -40,3 +40,10 @@
 .label {
     display: inline-block
 }
+
+.save {
+	display: block;
+	padding: 5px;
+	margin: 10px;
+	border: 1px solid #333;
+}
