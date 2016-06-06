@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CivClicker</title>
+	<title>Ad Clicker</title>
 	<link rel="stylesheet" type="text/css" href="interface.css" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<!-- <link rel="canonical" href="http://dhmstark.co.uk/civclicker.html" />
@@ -45,9 +45,9 @@
 
 <div id="strip">
 	<div id="stripInner">
-		<a href="civFAQ.html" target="_blank">FAQ / Instructions / Bugfixing</a> - 
-		<a href="civUpdates.html" target="_blank">Game Updates Log</a> - 
-		<a href="#" onclick="tips()">Tips</a> -
+		<a href=".html" target="_blank">FAQ / Instructions / Bugfixing [NYI]</a> - 
+		<a href=".html" target="_blank">Game Updates Log [NYI]</a> - 
+		<a href="#" onclick="tips()">Tips [NYI]</a> -
 		<a href="#" onclick="impExp()">Import/Export Save</a>
 		<span id="versionAlert"> - <span id="newVersionText" onclick="location.reload()">New Version Available</span></span>
 	</div>
@@ -62,7 +62,7 @@
 </div>
 
 <div id="header">
-	<h1>The <span id="civType">Thorp</span> of <span id="civName">Woodstock</span></h1>
+	<h1>The <span id="civType">Village</span> of <span id="civName">Woodstock</span></h1>
 	<div id="ruler">Ruled by the <span id="appellation">mighty</span> <span id="rulerName">Orteil</span></div>
 	<div style="clear:both;"></div>
 </div>
@@ -74,72 +74,118 @@
 			<table id="basicResources">
 				<tr>
 					<td><button onmousedown="increment(food)">Gather Food</button></td>
-					<td>Food: </td>
+					
 					<td class="number"><span id="food">0</span></td>
 					<td class="icon"><img src="food.png" class="icon icon-lg" /></td>
-					<td class="number">(Max storage: <span id="maxfood">200</span>)</td>
+					<!--<td class="number">(Max storage: <span id="maxfood">200</span>)</td>-->
 					<td class="number net"><span id="netFood">0</span>/s</td>
+                    <td><button onmousedown="NYI">NYI</button></td>
+					
+					<td class="number"><span id="NYI">0</span></td>
+					<td class="icon"><img src="NYI.png" class="icon icon-lg" /></td>
+					<!--<td class="number">(Max storage: <span id="maxNYI">200</span>)</td>-->
+					<td class="number net"><span id="netNYI">0</span>/s</td>
 				</tr>
 				<tr>
 					<td><button onmousedown="increment(wood)">Cut Wood</button></td>
-					<td>Wood: </td>
+					
 					<td class="number"><span id="wood">0</span></td>
 					<td class="icon"><img src="wood.png" class="icon icon-lg" /></td>
-					<td class="number">(Max storage: <span id="maxwood">200</span>)</td>
+					<!--<td class="number">(Max storage: <span id="maxwood">200</span>)</td>-->
 					<td class="number net"><span id="netWood">0</span>/s</td>
+                    <td><button onmousedown="NYI">NYI</button></td>
+                    
+					<td class="number"><span id="NYI">0</span></td>
+					<td class="icon"><img src="NYI.png" class="icon icon-lg" /></td>
+					<!--<td class="number">(Max storage: <span id="maxNYI">200</span>)</td>-->
+					<td class="number net"><span id="netNYI">0</span>/s</td>
 				</tr>
 				<tr>
 					<td><button onmousedown="increment(stone)">Mine Stone</button></td>
-					<td>Stone: </td>
+					
 					<td class="number"><span id="stone">0</span></td>
 					<td class="icon"><img src="stone.png" class="icon icon-lg" /></td>
-					<td class="number">(Max storage: <span id="maxstone">200</span>)</td>
+					<!--<td class="number">(Max storage: <span id="maxstone">200</span>)</td>-->
 					<td class="number net"><span id="netStone">0</span>/s</td>
+                    <td><button onmousedown="NYI">NYI</button></td>
+                    
+					<td class="number"><span id="NYI">0</span></td>
+					<td class="icon"><img src="NYI.png" class="icon icon-lg" /></td>
+					<!--<td class="number">(Max storage: <span id="maxNYI">200</span>)</td>-->
+					<td class="number net"><span id="netNYI">0</span>/s</td>
+				</tr>
+                <tr>
+					<td><button onmousedown="NYI">NYI</button></td>
+					
+					<td class="number"><span id="NYI">0</span></td>
+					<td class="icon"><img src="NYI.png" class="icon icon-lg" /></td>
+					<!--<td class="number">(Max storage: <span id="maxNYI">200</span>)</td>-->
+					<td class="number net"><span id="netNYI">0</span>/s</td>
+                    <td><button onmousedown="NYI">NYI</button></td>
+                   
+					<td class="number"><span id="NYI">0</span></td>
+					<td class="icon"><img src="NYI.png" class="icon icon-lg" /></td>
+					<!--<td class="number">(Max storage: <span id="maxNYI">200</span>)</td>-->
+					<td class="number net"><span id="netNYI">0</span>/s</td>
+				</tr>
+				<tr>
+					<td><button onmousedown="NYI">NYI</button></td>
+					
+					<td class="number"><span id="NYI">0</span></td>
+					<td class="icon"><img src="NYI.png" class="icon icon-lg" /></td>
+					<!--<td class="number">(Max storage: <span id="maxNYI">200</span>)</td>-->
+					<td class="number net"><span id="netNYI">0</span>/s</td>
+                    <td><button onmousedown="NYI">NYI</button></td>
+                    
+					<td class="number"><span id="NYI">0</span></td>
+					<td class="icon"><img src="NYI.png" class="icon icon-lg" /></td>
+					<!--<td class="number">(Max storage: <span id="maxNYI">200</span>)</td>-->
+					<td class="number net"><span id="netNYI">0</span>/s</td>
 				</tr>
 			</table>
 		</div>
 		<div id="specialResourcesContainer">
-			<h3>Special Resources</h3>
+			<h3>Special Resources[NYI]</h3>
 			<table>
 				<tr>
-					<td>Skins: </td>
+					<td>[NYI]: </td>
 					<td class="number"><span id="skins">0</span></td>
 					<td><img src="skins.png" class="icon icon-lg" /></td>
-					<td>Leather: </td>
+					<td>[NYI]: </td>
 					<td class="number"><span id="leather">0</span></td>
 					<td class="icon"><img src="leather.png" class="icon icon-lg" /></td>
 				</tr>
 				<tr>
-					<td>Herbs: </td>
+					<td>[NYI]: </td>
 					<td class="number"><span id="herbs">0</span></td>
 					<td><img src="herbs.png" class="icon icon-lg" /></td>
-					<td>Piety: </td>
+					<td>[NYI]: </td>
 					<td class="number"><span id="piety">0</span></td>
 					<td class="icon"><img src="piety.png" class="icon icon-lg" /></td>
 				</tr>
 				<tr>
-					<td>Ore: </td>
+					<td>[NYI]: </td>
 					<td class="number"><span id="ore">0</span></td>
 					<td><img src="ore.png" class="icon icon-lg" /></td>
-					<td>Metal: </td>
+					<td>[NYI]: </td>
 					<td class="number"><span id="metal">0</span></td>
 					<td class="icon"><img src="metal.png" class="icon icon-lg" /></td>
 				</tr>
 				<tr id="goldRow">
-					<td>Gold: </td>
+					<td>[NYI]: </td>
 					<td class="number"><span id="gold">0</span></td>
 					<td class="icon"><img src="gold.png" class="icon icon-lg" /></td>
 				</tr>
 			</table>
 		</div>
 	</div>
-	<div id="panesSelectors">
+	<!--<div id="panesSelectors">
 		<div id="selectors">
-			<div id="selectBuildings" class="paneSelector selected" onclick="paneSelect('buildings')">Buildings</div>
-			<div id="selectUpgrades" class="paneSelector" onclick="paneSelect('upgrades')">Upgrades</div>
-			<div id="selectDeity" class="paneSelector" onclick="paneSelect('deity')">Deity</div>
-			<div id="selectConquest" class="paneSelector" onclick="paneSelect('conquest')">Conquest</div>
-			<div id="selectTrade" class="paneSelector" onclick="paneSelect('trade')">Trade</div>
+			<div id="selectBuildings" class="paneSelector selected" onclick="paneSelect('buildings')">Buildings[NYI]</div>
+			<div id="selectUpgrades" class="paneSelector" onclick="paneSelect('upgrades')">Upgrades[NYI]</div>
+			<div id="selectDeity" class="paneSelector" onclick="paneSelect('deity')">Deity[NYI]</div>
+			<div id="selectConquest" class="paneSelector" onclick="paneSelect('conquest')">Conquest[NYI]</div>
+			<div id="selectTrade" class="paneSelector" onclick="paneSelect('trade')">Trade[NYI]</div>
 			<div style="clear:both;"></div>
 		</div>
 		
@@ -745,12 +791,12 @@
 				<button class="tradeResource" onmousedown="buy(metal)">Buy 250 Metal</button><br />
 			</div>
 		</div>
-	</div>
+	</div>-->
 </div>
 
 <div id="population">
 	<div id="populationContainer">
-		<h3>Population</h3>
+		<h3>Sidebar</h3>
 		<div id="populationNumbers">
 			<table>
 				<tr>
@@ -764,15 +810,15 @@
 			</table>
 			<br />
 		</div>
-		<div id="populationCreate">
+		<!--<div id="populationCreate">
 			<div id="spawn1group"><button id="spawn1" onmousedown="spawn(1)" disabled>Create Worker</button><span class="cost"><span id="workerCost">20</span> food</span><span class="note">: Create a new worker</span><br /></div>
 			<div id='spawn10'><button id="spawn10button" onmousedown="spawn(10)">Create 10 Workers</button><span class="cost"><span id="workerCost10">200</span> food</span><span class="note">: Create 10 new workers</span></div>
 			<div id='spawn100'><button id="spawn100button" onmousedown="spawn(100)">Create 100 Workers</button><span class="cost"><span id="workerCost100">2000</span> food</span><span class="note">: Create 100 new workers</span></div>
 			<div id='spawn1000'><button id="spawn1000button" onmousedown="spawn(1000)">Create 1000 Workers</button><span class="cost"><span id="workerCost1000">20000</span> food</span><span class="note">: Create 1000 new workers</span></div>
 			<div id="customSpawnIncrement"><input id="spawnCustom" type="number" min="1" step="1" value="1"><button id="spawnCustomButton" onmousedown="spawnCustom()">Create Workers</button></div>
-		</div>
+		</div>-->
 	</div>
-	<div id="jobsContainer">
+	<!--<div id="jobsContainer">
 		<h3>Jobs</h3>
 		<table id="jobs">
 			<tr id="customJobIncrement">
@@ -1046,12 +1092,12 @@
 				<td><span class="note"></span></td>
 			</tr>
 		</table>
-	</div>
-	<div id="tradeContainer">
+	</div>-->
+	<!--<div id="tradeContainer">
 		Trader wants <span id="tradeRequested">0</span> <span id="tradeType">food</span><br />
 		<button id="trade" onmousedown="trade()">Trade</button>
-	</div>
-	<div id="wondersContainer">
+	</div>-->
+	<!--<div id="wondersContainer">
 		<div id="wonderBuilding">
 			<div id="inProgress">
 				<span class="wonderTitle">Progress on <span id="wonderNameP">Wonder</span> - <span id="progressNumber">0</span>%</span> - <button id="renameWonder" onmousedown="renameWonder()">Rename</button>
@@ -1071,7 +1117,7 @@
 				<button class="wonderBonus" onmousedown="wonderBonus('Metal')">Metal</button>
 			</div>
 		</div>
-	</div>
+	</div>-->
 	<div id="eventsContainer">
 		<h3>Events</h3>
         <table id="logTable">
@@ -1088,7 +1134,7 @@
         </table>
 	</div>
 	<div id="pantheonContainer">
-		<h3>Pantheon</h3>
+		<!--<h3>Pantheon</h3>
 		<table id="activeDeity">
 			<tr id="deity1">
 				<td><strong><span id="deity1Name">No deity</span></strong><span id="deity1Type" class="deityType"></span></td>
@@ -1097,10 +1143,10 @@
 			</tr>
 		</table>
 		<br />
-		<table id="oldDeities"></table>
+		<table id="oldDeities"></table>-->
 	</div>
 	<div id="permaUpgradeContainer">
-		<h3>Pantheon Upgrades</h3>
+		<!--<h3>Pantheon Upgrades</h3>
 		<table>
 			<tr id="pRiddle"><td><strong>Riddle of Steel</strong>: </td><td>Improve soldiers</td></tr>
 			<tr id="pThrone"><td><strong>Throne of Skulls</strong>: </td><td>Slaying enemies creates temples</td></tr>
@@ -1114,11 +1160,11 @@
 			<tr id="pBlessing"><td><strong>Blessing of Abundance</strong>: </td><td>Increase farmer food output</td></tr>
 			<tr id="pWaste"><td><strong>Abide No Waste</strong>: </td><td>Workers will eat corpses if there is no food left</td></tr>
 			<tr id="pStay"><td><strong>Stay With Us</strong>: </td><td>Traders stay longer</td></tr>
-		</table>
+		</table>-->
 	</div>
 	<div id="pastWondersContainer">
-		<h3>Wonders</h3>
-		<table id="pastWonders"></table>
+		<!--<h3>Wonders</h3>
+		<table id="pastWonders"></table>-->
 	</div>
 	<div id="settings">
 		<h3>Settings</h3>
@@ -1161,7 +1207,7 @@
 		Cats: <span id="cats">0</span><br />
 	</div>
 	<div style="clear:both;"><br /></div>
-	<div id="achievements">
+	<!--<div id="achievements">
 		<h3>Achievements</h3>
 		<span class="achievement" title="Hamlet"><span class="achUnlocked" id="achHamlet">Hamlet</span></span>
 		<span class="achievement" title="Village"><span class="achUnlocked" id="achVillage">Village</span></span>
@@ -1203,7 +1249,7 @@
 		<span class="achievement" title="Rushed"><span class="achUnlocked" id="achRushed">Rushed</span></span>
 		<span class="break">&nbsp;</span>
 		<span class="achievement" title="Neverclick"><span class="achUnlocked" id="achNeverclick">Never&shy;click</span></span>
-	</div>
+	</div>-->
 </div>
 
 <script type="text/javascript" src="game.js"></script>

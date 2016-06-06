@@ -24,7 +24,7 @@
  * inspires others to make better games. :)
  */
 
-var version = 19;
+var version = 1;
 console.log('running');
 
 function bake_cookie(name, value) {
@@ -640,11 +640,11 @@ trader = {
 	body = document.getElementsByTagName('body')[0];
 
 //Prompt player for names
-if (!read_cookie('civ') && !localStorage.getItem('civ')){
+if (!read_cookie('ad') && !localStorage.getItem('ad')){
 	var civName = prompt('Please name your civilisation','');
 	document.getElementById('civName').innerHTML = civName;
 }
-if (!read_cookie('civ') && !localStorage.getItem('civ')){
+if (!read_cookie('ad') && !localStorage.getItem('ad')){
 	var rulerName = prompt('What is your name?','');
 	document.getElementById('rulerName').innerHTML = rulerName;
 }
@@ -658,10 +658,10 @@ function load(loadType){
 		
 	if (loadType == 'cookie'){
 		//check for cookies
-		if (read_cookie('civ') && read_cookie('civ2')){
+		if (read_cookie('ad') && read_cookie('ad2')){
 			//set variables to load from
-			loadVar = read_cookie('civ');
-			loadVar2 = read_cookie('civ2');
+			loadVar = read_cookie('ad');
+			loadVar2 = read_cookie('ad2');
 			//notify user
 			gameLog('Loaded saved game from cookie');
 			gameLog('Save system switching to localStorage.');
@@ -674,8 +674,8 @@ function load(loadType){
 	if (loadType == 'localStorage'){
 		//check for local storage
 		try {
-			string1 = localStorage.getItem('civ');
-			string2 = localStorage.getItem('civ2');
+			string1 = localStorage.getItem('ad');
+			string2 = localStorage.getItem('ad2');
 		} catch(err) {
 			console.log('Cannot access localStorage - browser may not support localStorage, or storage may be corrupt')
 		}

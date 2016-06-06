@@ -254,11 +254,11 @@ button:disabled{
 }
 #resources{
 	float:left;
-	width:50%;
+	width:auto;
 }
 #population{
-	float:left;
-	width:50%;
+	float:right;
+    width:auto;
 }
 #spawn10{
 	display:none;
@@ -764,6 +764,14 @@ button:disabled{
 }
 #basicResources button{
 	padding:0.3em;
+}
+#basicResources2{
+    float: right;
+    width: 50%
+    margin-right:0.5em;
+}
+#basicResources2 button{
+    padding:0.3em;
 }
 #specialResourcesContainer{
 	margin-bottom:0.5em;
