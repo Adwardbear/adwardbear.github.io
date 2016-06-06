@@ -61,6 +61,90 @@ function Build(id) {
 	}
 }
 
+function save(savetype){
+	//Create objects and populate them with the variables, these will be stored in cookies
+	//Each individual cookie stores only ~4000 characters, therefore split currently across two cookies
+	//Save files now also stored in localStorage, cookies relegated to backup
+	saveVar = {
+		money:money
+	}
+	saveVar2 = {
+		land:land,
+		wonder:wonder,
+		tent:tent,
+		whut:whut,
+		cottage:cottage,
+		house:house,
+		mansion:mansion,
+		barn:barn,
+		woodstock:woodstock,
+		stonestock:stonestock,
+		tannery:tannery,
+		smithy:smithy,
+		apothecary:apothecary,
+		temple:temple,
+		barracks:barracks,
+		stable:stable,
+		mill:mill,
+		graveyard:graveyard,
+		fortification:fortification,
+		battleAltar:battleAltar,
+		fieldsAltar:fieldsAltar,
+		underworldAltar:underworldAltar,
+		catAltar:catAltar,
+		resourceClicks:resourceClicks,
+		worksafe:worksafe,
+	}
+	//Create the cookies
+	bake_cookie('ad',saveVar);
+	bake_cookie('ad2',saveVar2);
+	//set localstorage
+	try {
+		localStorage.setItem('ad', JSON.stringify(saveVar));
+		localStorage.setItem('ad2', JSON.stringify(saveVar2));
+	} catch(err) {
+		console.log('Cannot access localStorage - browser may be old or storage may be corrupt')
+	}
+	//Update console for debugging, also the player depending on the type of save (manual/auto)
+	console.log('Attempted save');
+	if (savetype == 'export'){
+		var string = '[' + JSON.stringify(saveVar) + ',' + JSON.stringify(saveVar2) + ']';
+		var compressed = LZString.compressToBase64(string);
+		console.log('Compressing Save');
+		console.log('Compressed from ' + string.length + ' to ' + compressed.length + ' characters');
+		document.getElementById('impexpField').value = compressed;
+		gameLog('Saved game and exported to base64');
+	}
+	if ((read_cookie('ad') && read_cookie('ad2')) || (localStorage.getItem('ad') && localStorage.getItem('ad2'))){
+		console.log('Savegame exists');
+		if (savetype == 'auto'){
+			console.log('Autosave');
+			gameLog('Autosaved');
+		} else if (savetype == 'manual'){
+			alert('Game Saved');
+			console.log('Manual Save');
+			gameLog('Saved game');
+		}
+		_gaq.push(['_trackEvent', 'AdClicker', 'Save', savetype]);
+	};
+	try {
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.overrideMimeType('text/plain');
+		xmlhttp.open("GET", "version.txt?r=" + Math.random(),true);
+		xmlhttp.onreadystatechange=function() {
+			if (xmlhttp.readyState==4) {
+				var sVersion = parseInt(xmlhttp.responseText);
+				if (version < sVersion){
+					versionAlert();
+				}
+			}
+		}
+		xmlhttp.send(null)
+	} catch (err) {
+		console.log('XMLHttpRequest failed')
+	}
+}
+
 
 //Run this code once the page has loaded fully
 window.onload = function() {
