@@ -4499,12 +4499,12 @@ function save(savetype){
 		worksafe:worksafe,
 	}
 	//Create the cookies
-	bake_cookie('civ',saveVar);
-	bake_cookie('civ2',saveVar2);
+	bake_cookie('ad',saveVar);
+	bake_cookie('ad2',saveVar2);
 	//set localstorage
 	try {
-		localStorage.setItem('civ', JSON.stringify(saveVar));
-		localStorage.setItem('civ2', JSON.stringify(saveVar2));
+		localStorage.setItem('ad', JSON.stringify(saveVar));
+		localStorage.setItem('ad2', JSON.stringify(saveVar2));
 	} catch(err) {
 		console.log('Cannot access localStorage - browser may be old or storage may be corrupt')
 	}
@@ -4518,7 +4518,7 @@ function save(savetype){
 		document.getElementById('impexpField').value = compressed;
 		gameLog('Saved game and exported to base64');
 	}
-	if ((read_cookie('civ') && read_cookie('civ2')) || (localStorage.getItem('civ') && localStorage.getItem('civ2'))){
+	if ((read_cookie('ad') && read_cookie('ad2')) || (localStorage.getItem('ad') && localStorage.getItem('ad2'))){
 		console.log('Savegame exists');
 		if (savetype == 'auto'){
 			console.log('Autosave');
@@ -4565,10 +4565,10 @@ function deleteSave(){
 	//Deletes the current savegame by setting the game's cookies to expire in the past.
 	var really = confirm('Really delete save?'); //Check the player really wanted to do that.
 	if (really){
-        document.cookie = ['civ', '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
-		document.cookie = ['civ2', '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
-		localStorage.removeItem('civ');
-		localStorage.removeItem('civ2');
+        document.cookie = ['ad', '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
+		document.cookie = ['ad2', '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
+		localStorage.removeItem('ad');
+		localStorage.removeItem('ad2');
         gameLog('Save Deleted');
 	}
 }
