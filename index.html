@@ -61,7 +61,7 @@
 	<button id="impButton" onclick="load('import')">Import</button>
 </div>
 <div id="tips" style="width:400px">
-	<p>I hope you've enjoyed playing! If you want to donate to webhosting costs or buy me a beer, feel free to send something to one of the addresses below. :)</p>
+	<!--<p>I hope you've enjoyed playing! If you want to donate to webhosting costs or buy me a beer, feel free to send something to one of the addresses below. :)</p>
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 		<input type="hidden" name="cmd" value="_s-xclick">
 		<input type="hidden" name="hosted_button_id" value="QJHN5ZWZRESF2">
@@ -86,7 +86,7 @@
 	</div>
 	-->
 	<button id="tipsClose" onclick="tips()">Close</button>
-</div>
+</div>-->
 
 <div id="header">
 	<h1>The <span id="civType">Village</span> of <span id="civName">Woodstock</span></h1>
@@ -206,7 +206,7 @@
 			</table>
 		</div>
 	</div>
-	<!--<div id="panesSelectors">
+	<div id="panesSelectors"> <!-- disbling this div breaks loading -->
 		<div id="selectors">
 			<div id="selectBuildings" class="paneSelector selected" onclick="paneSelect('buildings')">Buildings[NYI]</div>
 			<div id="selectUpgrades" class="paneSelector" onclick="paneSelect('upgrades')">Upgrades[NYI]</div>
@@ -425,7 +425,7 @@
 			</table>
 		</div>
 		
-		<div id="upgradesPane">
+		<!--<div id="upgradesPane">
 		<h3>Upgrades</h3>
 			<span id="skinningLine"><button id="skinning" onmousedown="upgrade('skinning')">Skinning<br />(10 skins)</button><span class="note">Farmers can collect skins</span><br /></span>
 			<span id="harvestingLine"><button id="harvesting" onmousedown="upgrade('harvesting')">Harvesting<br />(10 herbs)</button><span class="note">Woodcutters can collect herbs</span><br /></span>
@@ -520,7 +520,7 @@
 				<span id="Pcurrency"><b>Currency</b> - Traders arrive more frequently, stay longer</span>
 				<span id="Pcommerce"><b>Commerce</b> - Traders arrive more frequently, stay longer</span>
 			</div>
-		</div>
+		</div>-->
 		
 		<div id="deityPane">
 		<h3>Deity</h3>
@@ -677,8 +677,8 @@
 				<button id="iconoclasm" onmousedown="iconoclasmList()">Iconoclasm<br />(1000 piety)</button><span class="note">Remove an old deity</span><br />
 				<div id="iconoclasmList"></div>
 			</div>
-		</div>
-		<div id="conquestPane">
+		</div>-->
+		<!--<div id="conquestPane">
 		<h3>Conquest</h3>
 			<span id="standardLine"><button id="standard" onmousedown="upgrade('standard')" disabled>Battle Standard<br />(1000 metal & leather)</button><span class="note">Lets you build an army (requires barracks)</span><br /></span>
 			<div id="conquest">
