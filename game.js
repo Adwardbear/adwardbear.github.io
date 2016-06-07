@@ -38,17 +38,15 @@ function BuyLemonadeStand() {
  //Load in saved data
 
 function load() {
-    var result = localStorage.getItem("websitename");
-    player = JSON.parse(result);
-    if (typeof result.money !== "undefined") cookies = result.money;
-    document.getElementById("money").innerHTML = result.money;
+    player = JSON.parse(localStorage.getItem('player'));
+    document.getElementById("money").innerHTML = money;
 }
 
 function save() {
-    localStorage.setItem("websitename", JSON.stringify(player));        
+    localStorage.setItem('player', JSON.stringify(player));      
 }
 
 function reset() {
-    localStorage.removeItem("websitename");
+    localStorage.removeItem("player");
     reload_view();
 }    
