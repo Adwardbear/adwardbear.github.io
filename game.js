@@ -8,7 +8,6 @@ var version = 1;
 
 //The timer to run code every second
 var Timer = window.setInterval(function(){Tick()}, 1000);
-var money = 0
 
 //The object declaration for game saves
 function GameSave() {
@@ -30,7 +29,6 @@ function GatherMoney() {
 	
 	//Display the player's current money
 	document.getElementById("money").innerHTML = game.money;
-    document.getElementById("money2").innerHTML = money;
 }
 
 //The function that gets run every second
