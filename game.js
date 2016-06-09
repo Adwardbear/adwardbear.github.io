@@ -1,52 +1,69 @@
-var money = 0;
-var Timer = window.setInterval(function(){Tick()}, 1000);
-
-var Building1Name = "Lemonade Stand";
-var Building1Cost = 10;
-var Building1PerSec = 1;
-var Building1Qty = 0;
-
+//Declaring variables
 var player = {
-    money:money,
-    Building1Qty:Building1Qty
+    money: 1,
+    totalMoney: 1
 }
 
-function GatherMoney() {
-	money = money + 1;
-	document.getElementById("money").innerHTML = money;
+function moneyClick() {
+    document.getElementById("clickClick").disabled = true; 
+    console.log('btn disabled');
+    console.log('bar running');
+    var elem = document.getElementById("bar1");   
+    var width = 10;
+    var id = setInterval(frame, 25);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        document.getElementById("label").innerHTML = width * 1  + '%';
+          
+    }
+  }
+console.log('command complete');
+
 }
 
-function Tick() {
-	money = money + (Building1Qty * Building1PerSec);
-	document.getElementById("money").innerHTML = money;
-}
-
-function BuyLemonadeStand() {
-	if (money >= Building1Cost) {
-		money = money - Building1Cost;
-		Building1Qty = Building1Qty + 1;
-		document.getElementById("money").innerHTML = money;
-		document.getElementById("Building1Qty").innerHTML = Building1Qty;
-	}
+function addMoney() {
+    player.money++;
+    console.log('player.money++');
+    updateScreen();
 }
 
 
-//
-//
-//
-
- //Load in saved data
-
-function load() {
-    player = JSON.parse(localStorage.getItem('player'));
-    document.getElementById("money").innerHTML = money;
+//Loading and saving
+function saveGame() {
+    localStorage.setItem("gameSave", JSON.stringify(player));
+    console.log('saved');
 }
 
-function save() {
-    localStorage.setItem('player', JSON.stringify(player));      
+function loadGame() {
+    var result = localStorage.getItem("gameSave");
+    player = JSON.parse(result);
+    console.log('loaded');
+    updateScreen();
 }
 
 function reset() {
-    localStorage.removeItem("player");
-    reload_view();
-}    
+    localStorage.removeItem("gameSave");
+    window.location.reload();
+}
+
+if(localStorage.getItem("gameSave") === null){
+    saveGame();
+} else {
+    loadGame();
+}
+
+
+//Starting game logic
+function updateScreen() {
+    document.getElementById("money").innerHTML = player.money;
+    //$("#metal").html(player.metal);
+    //$("#circuit").html(player.circuit);
+    //$("#eps").html((player.generatorAmount * player.generatorConversions - (player.metalPerSecond * player.basicRobotConversions) * 2) - (player.circuitPerSecond * player.basicFactoryConversions) * 4);
+    //$("#mps").html(player.metalPerSecond * player.basicRobotConversions);
+    //$("#cps").html(player.circuitPerSecond * player.basicFactoryConversions);
+    //$("#energyPerCrankClick").html(player.energyAtOnce);
+}
