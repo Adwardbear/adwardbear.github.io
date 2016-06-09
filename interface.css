@@ -8,5 +8,112 @@
     position: absolute;
     width: 1%;
     height: 100%;
-    background-color: green;
+    background-color: black;
+}
+#label1 {
+    position: relative;
+    text-align: center; /* If you want to center it */
+    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    color: white;
+}
+#progress2 {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    background-color: grey;
+}
+#bar2 {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: black;
+}
+#label2 {
+    position: relative;
+    text-align: center; /* If you want to center it */
+    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    color: white;
+}
+#progress3 {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    background-color: grey;
+}
+#bar3 {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: black;
+}
+#label3 {
+    position: relative;
+    text-align: center; /* If you want to center it */
+    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    color: white;
+}
+#progress4 {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    background-color: grey;
+}
+#bar4 {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: black;
+}
+#label4 {
+    position: relative;
+    text-align: center; /* If you want to center it */
+    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    color: white;
+}
+#progress5 {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    background-color: grey;
+}
+#bar5 {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: black;
+}
+#label5 {
+    position: relative;
+    text-align: center; /* If you want to center it */
+    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    color: white;
+}
+#progress6 {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    background-color: grey;
+}
+#bar6 {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: black;
+}
+#label6 {
+    position: relative;
+    text-align: center; /* If you want to center it */
+    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    color: white;
+}
+#resourceDiv {
+    float:left;
+    width: 22%
+}
+#resourceDiv2 {
+    float:left;
+    width 22%
+}
+#spare {
+    float:right;
 }

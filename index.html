@@ -3,24 +3,71 @@
 		<link rel="stylesheet" type="text/css" href="interface.css" />
 	</head>
 	<body>
-		<button id="clickClick" onclick="moneyClick()">Click Me!</button>
+        <div id="resourceDiv">
+            <button id="runBuilding1" onclick="runBuilding1()">runBuilding1</button>
+            <button id="buyBuilding1" onclick="buyBuilding1()">buyBuilding1</button>
+            Cost: <span id="building1Cost">0</span>
 		<br />
-        <div id="progress1">
-            <div id="bar1"></div>
+            <div id="progress1">
+                <div id="bar1"></div>
+                <div id="label1">1</div>
+            </div>
+            QTY: <span id=building1Qty>0</span>
+            <br />
+            <br />
+            <button id="runBuilding2" onclick="runBuilding2()">runBuilding2</button>
+            <button id="buyBuilding2" onclick="buyBuilding2()" disabled>buyBuilding2</button>
+            Cost: NYI!
+		<br />
+            <div id="progress2">
+                <div id="bar2"></div>
+                <div id="label2">10</div>
+            </div>
+            <br />
+            <button id="building3" onclick="building3()">building3</button>
+		<br />
+            <div id="progress3">
+                <div id="bar3"></div>
+                <div id="label3">0%</div>
+            </div>
+            <br />
+            <button id="building4" onclick="building4()">building4</button>
+		<br />
+            <div id="progress4" class="block">
+                <div id="bar4"></div>
+                <div id="label4">0%</div>
+            </div>
+            <br />
+            <button id="building5" onclick="building5()">building5</button>
+		<br />
+            <div id="progress5">
+                <div id="bar5"></div>
+                <div id="label5">0%</div>
+            </div>
         </div>
-		Money: <span id="money">1</span>
+        
+        
+        <div id="resourceDiv2">
+		<button id="building6" onclick="building6()">building6</button>
 		<br />
-		<button onclick="buyCursor()">Buy Cursor</button>
-		<br />
-		Cursors: <span id="cursors">0</span>
-		<br />
-		Cursor Cost: <span id="cursorCost">10</span>
-        <br />
+            <div id="progress6">
+                <div id="bar6"></div>
+                <div id="label6">0%</div>
+            </div>
+        </div>
+        
+        
+        <div id=spare>
+            Money: <span id="money">1</span>
+            <br />
 		<button onclick="saveGame()">save</button>
         <br />
 		<button onclick="loadGame()">load</button>
         <br />
         <button onclick="reset()">reset</button>
+        <br />
+        <button onclick="updateScreen()">screen update</button>
+        </div>
 		<script type="text/javascript" src="game.js"></script>
 	</body>
 </html>
