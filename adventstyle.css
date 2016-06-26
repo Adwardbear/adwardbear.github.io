@@ -1,21 +1,19 @@
 #buttons {
     float:left;
-    font-size: 30px;
-}
-
-#dice {
-    float:right;
-    font-size: 30px;
-}
-
-#stats {
-    float:right;
     padding: 50px;
-    font-size: 18px;
 }
 
 #gameBox {
     float:left;
     padding: 50px;
-    font-size: 30px;
+}
+
+#dice {
+    float:left;
+    padding:50px;
+}
+
+#stats {
+    float:left;
+    padding: 50px;
 }
