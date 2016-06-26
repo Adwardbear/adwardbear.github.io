@@ -66,6 +66,7 @@ function building1Money() {
 
 function buyBuilding2() {
     player.building2Cost = Math.floor(10 * Math.pow(1.2,player.building2Qty));
+    player.building2Cost = Math.floor(10 * Math.pow(1.2,player.building2Qty));
     if(player.money >= player.building2Cost){
         player.building2Qty = player.building2Qty +1;
         player.money = player.money - player.building2Cost;
@@ -86,6 +87,7 @@ function runBuilding2() {
     var width = 1;
     console.log('Bar set at 100frames');
     var id = setInterval(frame, 100);
+    
     function frame() {
       if (width >= 100) {
         clearInterval(id);

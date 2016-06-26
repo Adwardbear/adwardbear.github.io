@@ -1,0 +1,17 @@
+#buttons {
+    float:left;
+}
+
+#dice {
+    float:right;
+}
+
+#stats {
+    float:right;
+    padding: 50px;
+}
+
+#gameBox {
+    float:left;
+    padding: 50px;
+}

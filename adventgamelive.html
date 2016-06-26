@@ -1,0 +1,42 @@
+<script type="text/javascript" src="advent.js"></script>
+<link rel="stylesheet" type="text/css" href="adventstyle.css" />
+
+<h1>Adventure Game Prototype</h1>
+<h2>User Screen</h2>
+
+<div id="buttons">
+<p><button onclick="gameSave()">Save</button></p>
+<p><button onclick="gameLoad()">Load</button></p>
+<p><button onclick="gameHardReset()">HARD Reset</button></p>
+<p><button id="gameMessage" onclick="gameMessage()">Game Process</button></p>
+</div>
+
+<div id="dice">
+<p>Dice</p>
+<p>d4: <span id="d4">null</span></p>
+<p>d6: <span id="d6">null</span></p>
+<p>d8: <span id="d8">null</span></p>
+<p>d10: <span id="d10">null</span></p>
+<p>d12: <span id="d12">null</span></p>
+<p>d20: <span id="d20">null</span></p>
+<p>d100:<span id="d100">null</span></p>
+</div>
+
+<div id="stats">
+<p>Stats</p>
+<p>Turn: <span id="turn">null</span></p>
+<p>Kills: <span id="kills">null</span></p>
+<p>HP: <span id="HP">null</span></p>
+<p>MP: <span id="MP">null</span></p>
+<p>Reset Bonus</p>
+<p>Bonus Dice: <span id="bonusDice">null</span></p>
+<p>Bonus HP: <span id="bonusHP">null</span></p>
+<p>Evil HP: <span id="EHP">null</span></p>
+</div>
+
+<div id="gameBox">
+    <h3>Game Text</h3>
+    <p id="gameText">null</p>
+    <h3>Result</h3>
+    <p id="gameText2">null</p>
+</div>

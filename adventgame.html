@@ -1,0 +1,51 @@
+<script type="text/javascript" src="advent.js"></script>
+<link rel="stylesheet" type="text/css" href="adventstyle.css" />
+
+<h1>Adventure Game Prototype</h1>
+<h2>Dev Screen</h2>
+
+<div id="buttons">
+<p><button onclick="updateScreen()">screen update</button></p>
+<p><button onclick="gameSave()">Save</button></p>
+<p><button onclick="gameLoad()">Load</button></p>
+<p><button onclick="gameReset()">Soft Reset (hidden)</button></p>
+<p><button onclick="gameHardReset()">HARD Reset</button></p>
+<p><button onclick="rollDice4()">roll d4</button></p>
+<p><button onclick="rollDice6()">roll d6</button></p>
+<p><button onclick="rollDice8()">roll d8</button></p>
+<p><button onclick="rollDice10()">roll d10</button></p>
+<p><button onclick="rollDice12()">roll d12</button></p>
+<p><button onclick="rollDice20()">roll d20</button></p>
+<p><button onclick="rollDice100()">roll d100</button></p>
+<p><button id="gameMessage" onclick="gameMessage()">gameMessage</button></p>
+</div>
+
+<div id="dice">
+<p>Dice</p>
+<p>d4: <span id="d4">null</span></p>
+<p>d6: <span id="d6">null</span></p>
+<p>d8: <span id="d8">null</span></p>
+<p>d10: <span id="d10">null</span></p>
+<p>d12: <span id="d12">null</span></p>
+<p>d20: <span id="d20">null</span></p>
+<p>d100:<span id="d100">null</span></p>
+</div>
+
+<div id="stats">
+<p>Stats</p>
+<p>Turn: <span id="turn">null</span></p>
+<p>Kills: <span id="kills">null</span></p>
+<p>HP: <span id="HP">null</span></p>
+<p>MP: <span id="MP">null</span></p>
+<p>Reset Bonus</p>
+<p>Bonus Dice: <span id="bonusDice">null</span></p>
+<p>Bonus HP: <span id="bonusHP">null</span></p>
+<p>Evil HP: <span id="EHP">null</span></p>
+</div>
+
+<div id="gameBox">
+    <h3>Game Text</h3>
+    <p id="gameText">null</p>
+    <h3>Result</h3>
+    <p id="gameText2">null</p>
+</div>

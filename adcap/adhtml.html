@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adventure Capitalist</title>
+	<link rel="stylesheet" type="text/css" href="adcss.css" />
+</head>
+<body>
+	<div id="container">
+
+		<div id="containerTitle"> ADVENTURE CAPITALIST
+		</div>
+
+		<div id="containerGame">
+			<div id="containerLeft">
+
+				<div id="investments"> Investments </div>
+				<div id="money"></div>
+
+				<div id="containerBuildings">
+
+					<div id="building1" class="building">
+						<div id="button1" class="button" onclick="buyBuilding(1)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name1"></div>
+								<div class="inc inc1"></div>
+								<div id="bar1" class="bar"></div>
+							</div>
+							<div id="clickme1" class="clickme" onclick="clickme(1)">
+								<div class="containerBar">
+									<div class="name name1"></div>
+									<div class="inc inc1"></div>
+								</div>
+							</div>
+							<div id="block1" class="block">
+								<div class="containerBar">
+									<div class="name name1"></div>
+									<div class="inc inc1"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned1" class="owned"></div>
+						<div id="cost1" class="cost"></div>
+					</div>
+
+					<div id="building2" class="building">
+						<div id="button2" class="button" onclick="buyBuilding(2)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name2"></div>
+								<div class="inc inc2"></div>
+								<div id="bar2" class="bar"></div>
+							</div>
+							<div id="clickme2" class="clickme" onclick="clickme(2)">
+								<div class="containerBar">
+									<div class="name name2"></div>
+									<div class="inc inc2"></div>
+								</div>
+							</div>
+							<div id="block2" class="block">
+								<div class="containerBar">
+									<div class="name name2"></div>
+									<div class="inc inc2"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned2" class="owned"></div>
+						<div id="cost2" class="cost"></div>
+					</div>
+
+					<div id="building3" class="building">
+						<div id="button3" class="button" onclick="buyBuilding(3)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name3"></div>
+								<div class="inc inc3"></div>
+								<div id="bar3" class="bar"></div>
+							</div>
+							<div id="clickme3" class="clickme" onclick="clickme(3)">
+								<div class="containerBar">
+									<div class="name name3"></div>
+									<div class="inc inc3"></div>
+								</div>
+							</div>
+							<div id="block3" class="block">
+								<div class="containerBar">
+									<div class="name name3"></div>
+									<div class="inc inc3"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned3" class="owned"></div>
+						<div id="cost3" class="cost"></div>
+					</div>
+
+					<div id="building4" class="building">
+						<div id="button4" class="button" onclick="buyBuilding(4)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name4"></div>
+								<div class="inc inc4"></div>
+								<div id="bar4" class="bar"></div>
+							</div>
+							<div id="clickme4" class="clickme" onclick="clickme(4)">
+								<div class="containerBar">
+									<div class="name name4"></div>
+									<div class="inc inc4"></div>
+								</div>
+							</div>
+							<div id="block4" class="block">
+								<div class="containerBar">
+									<div class="name name4"></div>
+									<div class="inc inc4"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned4" class="owned"></div>
+						<div id="cost4" class="cost"></div>
+					</div>
+
+					<div id="building5" class="building">
+						<div id="button5" class="button" onclick="buyBuilding(5)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name5"></div>
+								<div class="inc inc5"></div>
+								<div id="bar5" class="bar"></div>
+							</div>
+							<div id="clickme5" class="clickme" onclick="clickme(5)">
+								<div class="containerBar">
+									<div class="name name5"></div>
+									<div class="inc inc5"></div>
+								</div>
+							</div>
+							<div id="block5" class="block">
+								<div class="containerBar">
+									<div class="name name5"></div>
+									<div class="inc inc5"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned5" class="owned"></div>
+						<div id="cost5" class="cost"></div>
+					</div>
+
+					<div id="building6" class="building">
+						<div id="button6" class="button" onclick="buyBuilding(6)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name6"></div>
+								<div class="inc inc6"></div>
+								<div id="bar6" class="bar"></div>
+							</div>
+							<div id="clickme6" class="clickme" onclick="clickme(6)">
+								<div class="containerBar">
+									<div class="name name6"></div>
+									<div class="inc inc6"></div>
+								</div>
+							</div>
+							<div id="block6" class="block">
+								<div class="containerBar">
+									<div class="name name6"></div>
+									<div class="inc inc6"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned6" class="owned"></div>
+						<div id="cost6" class="cost"></div>
+					</div>
+
+					<div id="building7" class="building">
+						<div id="button7" class="button" onclick="buyBuilding(7)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name7"></div>
+								<div class="inc inc7"></div>
+								<div id="bar7" class="bar"></div>
+							</div>
+							<div id="clickme7" class="clickme" onclick="clickme(7)">
+								<div class="containerBar">
+									<div class="name name7"></div>
+									<div class="inc inc7"></div>
+								</div>
+							</div>
+							<div id="block7" class="block">
+								<div class="containerBar">
+									<div class="name name7"></div>
+									<div class="inc inc7"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned7" class="owned"></div>
+						<div id="cost7" class="cost"></div>
+					</div>
+
+					<div id="building8" class="building">
+						<div id="button8" class="button" onclick="buyBuilding(8)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name8"></div>
+								<div class="inc inc8"></div>
+								<div id="bar8" class="bar"></div>
+							</div>
+							<div id="clickme8" class="clickme" onclick="clickme(8)">
+								<div class="containerBar">
+									<div class="name name8"></div>
+									<div class="inc inc8"></div>
+								</div>
+							</div>
+							<div id="block8" class="block">
+								<div class="containerBar">
+									<div class="name name8"></div>
+									<div class="inc inc8"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned8" class="owned"></div>
+						<div id="cost8" class="cost"></div>
+					</div>
+
+					<div id="building9" class="building">
+						<div id="button9" class="button" onclick="buyBuilding(9)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name9"></div>
+								<div class="inc inc9"></div>
+								<div id="bar9" class="bar"></div>
+							</div>
+							<div id="clickme9" class="clickme" onclick="clickme(9)">
+								<div class="containerBar">
+									<div class="name name9"></div>
+									<div class="inc inc9"></div>
+								</div>
+							</div>
+							<div id="block9" class="block">
+								<div class="containerBar">
+									<div class="name name9"></div>
+									<div class="inc inc9"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned9" class="owned"></div>
+						<div id="cost9" class="cost"></div>
+					</div>
+
+					<div id="building10" class="building">
+						<div id="button10" class="button" onclick="buyBuilding(10)"></div>
+						<div class="unbutton"></div>
+						<div class="progress">
+							<div class="containerBar">
+								<div class="name name10"></div>
+								<div class="inc inc10"></div>
+								<div id="bar10" class="bar"></div>
+							</div>
+							<div id="clickme10" class="clickme" onclick="clickme(10)">
+								<div class="containerBar">
+									<div class="name name10"></div>
+									<div class="inc inc10"></div>
+								</div>
+							</div>
+							<div id="block10" class="block">
+								<div class="containerBar">
+									<div class="name name10"></div>
+									<div class="inc inc10"></div>
+								</div>
+							</div>
+						</div>
+						<div id="owned10" class="owned"></div>
+						<div id="cost10" class="cost"></div>
+					</div>
+
+				</div>
+			</div>
+			<div id="containerRight">
+
+				<div id="containerDisplay">
+
+					<div id="display0" class="display"> 
+						<img src="img/money1.gif" id="moneypic"/>
+					</div>
+
+
+
+					<div id="display1" class="display"> 
+
+						<div class="menuTitle"> Upgrades </div>
+
+						<div class="containerBuyAll"> 
+							<div class="buyAll textContainer" onclick="buyAllUpgrades()"><span class="text">Buy All</span></div>
+						</div>
+
+						<div class="upgrade"> <div id="upgradeButton1" class="upgradeButton" onclick="buyUpgrade(1)"></div> <div class="unupbutton"></div> <div id="upgradeBought1" class="bought"></div> <div id="upgradeName1" class="upgradeName"></div> <div id="upgradeText1" class="upgradeText"></div> <div id="upgradePrice1" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton2" class="upgradeButton" onclick="buyUpgrade(2)"></div> <div class="unupbutton"></div> <div id="upgradeBought2" class="bought"></div> <div id="upgradeName2" class="upgradeName"></div> <div id="upgradeText2" class="upgradeText"></div> <div id="upgradePrice2" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton3" class="upgradeButton" onclick="buyUpgrade(3)"></div> <div class="unupbutton"></div> <div id="upgradeBought3" class="bought"></div> <div id="upgradeName3" class="upgradeName"></div> <div id="upgradeText3" class="upgradeText"></div> <div id="upgradePrice3" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton4" class="upgradeButton" onclick="buyUpgrade(4)"></div> <div class="unupbutton"></div> <div id="upgradeBought4" class="bought"></div> <div id="upgradeName4" class="upgradeName"></div> <div id="upgradeText4" class="upgradeText"></div> <div id="upgradePrice4" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton5" class="upgradeButton" onclick="buyUpgrade(5)"></div> <div class="unupbutton"></div> <div id="upgradeBought5" class="bought"></div> <div id="upgradeName5" class="upgradeName"></div> <div id="upgradeText5" class="upgradeText"></div> <div id="upgradePrice5" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton6" class="upgradeButton" onclick="buyUpgrade(6)"></div> <div class="unupbutton"></div> <div id="upgradeBought6" class="bought"></div> <div id="upgradeName6" class="upgradeName"></div> <div id="upgradeText6" class="upgradeText"></div> <div id="upgradePrice6" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton7" class="upgradeButton" onclick="buyUpgrade(7)"></div> <div class="unupbutton"></div> <div id="upgradeBought7" class="bought"></div> <div id="upgradeName7" class="upgradeName"></div> <div id="upgradeText7" class="upgradeText"></div> <div id="upgradePrice7" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton8" class="upgradeButton" onclick="buyUpgrade(8)"></div> <div class="unupbutton"></div> <div id="upgradeBought8" class="bought"></div> <div id="upgradeName8" class="upgradeName"></div> <div id="upgradeText8" class="upgradeText"></div> <div id="upgradePrice8" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton9" class="upgradeButton" onclick="buyUpgrade(9)"></div> <div class="unupbutton"></div> <div id="upgradeBought9" class="bought"></div> <div id="upgradeName9" class="upgradeName"></div> <div id="upgradeText9" class="upgradeText"></div> <div id="upgradePrice9" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton10" class="upgradeButton" onclick="buyUpgrade(10)"></div> <div class="unupbutton"></div> <div id="upgradeBought10" class="bought"></div> <div id="upgradeName10" class="upgradeName"></div> <div id="upgradeText10" class="upgradeText"></div> <div id="upgradePrice10" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton11" class="upgradeButton" onclick="buyUpgrade(11)"></div> <div class="unupbutton"></div> <div id="upgradeBought11" class="bought"></div> <div id="upgradeName11" class="upgradeName"></div> <div id="upgradeText11" class="upgradeText"></div> <div id="upgradePrice11" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton12" class="upgradeButton" onclick="buyUpgrade(12)"></div> <div class="unupbutton"></div> <div id="upgradeBought12" class="bought"></div> <div id="upgradeName12" class="upgradeName"></div> <div id="upgradeText12" class="upgradeText"></div> <div id="upgradePrice12" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton13" class="upgradeButton" onclick="buyUpgrade(13)"></div> <div class="unupbutton"></div> <div id="upgradeBought13" class="bought"></div> <div id="upgradeName13" class="upgradeName"></div> <div id="upgradeText13" class="upgradeText"></div> <div id="upgradePrice13" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton14" class="upgradeButton" onclick="buyUpgrade(14)"></div> <div class="unupbutton"></div> <div id="upgradeBought14" class="bought"></div> <div id="upgradeName14" class="upgradeName"></div> <div id="upgradeText14" class="upgradeText"></div> <div id="upgradePrice14" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton15" class="upgradeButton" onclick="buyUpgrade(15)"></div> <div class="unupbutton"></div> <div id="upgradeBought15" class="bought"></div> <div id="upgradeName15" class="upgradeName"></div> <div id="upgradeText15" class="upgradeText"></div> <div id="upgradePrice15" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton16" class="upgradeButton" onclick="buyUpgrade(16)"></div> <div class="unupbutton"></div> <div id="upgradeBought16" class="bought"></div> <div id="upgradeName16" class="upgradeName"></div> <div id="upgradeText16" class="upgradeText"></div> <div id="upgradePrice16" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton17" class="upgradeButton" onclick="buyUpgrade(17)"></div> <div class="unupbutton"></div> <div id="upgradeBought17" class="bought"></div> <div id="upgradeName17" class="upgradeName"></div> <div id="upgradeText17" class="upgradeText"></div> <div id="upgradePrice17" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton18" class="upgradeButton" onclick="buyUpgrade(18)"></div> <div class="unupbutton"></div> <div id="upgradeBought18" class="bought"></div> <div id="upgradeName18" class="upgradeName"></div> <div id="upgradeText18" class="upgradeText"></div> <div id="upgradePrice18" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton19" class="upgradeButton" onclick="buyUpgrade(19)"></div> <div class="unupbutton"></div> <div id="upgradeBought19" class="bought"></div> <div id="upgradeName19" class="upgradeName"></div> <div id="upgradeText19" class="upgradeText"></div> <div id="upgradePrice19" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton20" class="upgradeButton" onclick="buyUpgrade(20)"></div> <div class="unupbutton"></div> <div id="upgradeBought20" class="bought"></div> <div id="upgradeName20" class="upgradeName"></div> <div id="upgradeText20" class="upgradeText"></div> <div id="upgradePrice20" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton21" class="upgradeButton" onclick="buyUpgrade(21)"></div> <div class="unupbutton"></div> <div id="upgradeBought21" class="bought"></div> <div id="upgradeName21" class="upgradeName"></div> <div id="upgradeText21" class="upgradeText"></div> <div id="upgradePrice21" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton22" class="upgradeButton" onclick="buyUpgrade(22)"></div> <div class="unupbutton"></div> <div id="upgradeBought22" class="bought"></div> <div id="upgradeName22" class="upgradeName"></div> <div id="upgradeText22" class="upgradeText"></div> <div id="upgradePrice22" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton23" class="upgradeButton" onclick="buyUpgrade(23)"></div> <div class="unupbutton"></div> <div id="upgradeBought23" class="bought"></div> <div id="upgradeName23" class="upgradeName"></div> <div id="upgradeText23" class="upgradeText"></div> <div id="upgradePrice23" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton24" class="upgradeButton" onclick="buyUpgrade(24)"></div> <div class="unupbutton"></div> <div id="upgradeBought24" class="bought"></div> <div id="upgradeName24" class="upgradeName"></div> <div id="upgradeText24" class="upgradeText"></div> <div id="upgradePrice24" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton25" class="upgradeButton" onclick="buyUpgrade(25)"></div> <div class="unupbutton"></div> <div id="upgradeBought25" class="bought"></div> <div id="upgradeName25" class="upgradeName"></div> <div id="upgradeText25" class="upgradeText"></div> <div id="upgradePrice25" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton26" class="upgradeButton" onclick="buyUpgrade(26)"></div> <div class="unupbutton"></div> <div id="upgradeBought26" class="bought"></div> <div id="upgradeName26" class="upgradeName"></div> <div id="upgradeText26" class="upgradeText"></div> <div id="upgradePrice26" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton27" class="upgradeButton" onclick="buyUpgrade(27)"></div> <div class="unupbutton"></div> <div id="upgradeBought27" class="bought"></div> <div id="upgradeName27" class="upgradeName"></div> <div id="upgradeText27" class="upgradeText"></div> <div id="upgradePrice27" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton28" class="upgradeButton" onclick="buyUpgrade(28)"></div> <div class="unupbutton"></div> <div id="upgradeBought28" class="bought"></div> <div id="upgradeName28" class="upgradeName"></div> <div id="upgradeText28" class="upgradeText"></div> <div id="upgradePrice28" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton29" class="upgradeButton" onclick="buyUpgrade(29)"></div> <div class="unupbutton"></div> <div id="upgradeBought29" class="bought"></div> <div id="upgradeName29" class="upgradeName"></div> <div id="upgradeText29" class="upgradeText"></div> <div id="upgradePrice29" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton30" class="upgradeButton" onclick="buyUpgrade(30)"></div> <div class="unupbutton"></div> <div id="upgradeBought30" class="bought"></div> <div id="upgradeName30" class="upgradeName"></div> <div id="upgradeText30" class="upgradeText"></div> <div id="upgradePrice30" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton31" class="upgradeButton" onclick="buyUpgrade(31)"></div> <div class="unupbutton"></div> <div id="upgradeBought31" class="bought"></div> <div id="upgradeName31" class="upgradeName"></div> <div id="upgradeText31" class="upgradeText"></div> <div id="upgradePrice31" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton32" class="upgradeButton" onclick="buyUpgrade(32)"></div> <div class="unupbutton"></div> <div id="upgradeBought32" class="bought"></div> <div id="upgradeName32" class="upgradeName"></div> <div id="upgradeText32" class="upgradeText"></div> <div id="upgradePrice32" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton33" class="upgradeButton" onclick="buyUpgrade(33)"></div> <div class="unupbutton"></div> <div id="upgradeBought33" class="bought"></div> <div id="upgradeName33" class="upgradeName"></div> <div id="upgradeText33" class="upgradeText"></div> <div id="upgradePrice33" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton34" class="upgradeButton" onclick="buyUpgrade(34)"></div> <div class="unupbutton"></div> <div id="upgradeBought34" class="bought"></div> <div id="upgradeName34" class="upgradeName"></div> <div id="upgradeText34" class="upgradeText"></div> <div id="upgradePrice34" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton35" class="upgradeButton" onclick="buyUpgrade(35)"></div> <div class="unupbutton"></div> <div id="upgradeBought35" class="bought"></div> <div id="upgradeName35" class="upgradeName"></div> <div id="upgradeText35" class="upgradeText"></div> <div id="upgradePrice35" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton36" class="upgradeButton" onclick="buyUpgrade(36)"></div> <div class="unupbutton"></div> <div id="upgradeBought36" class="bought"></div> <div id="upgradeName36" class="upgradeName"></div> <div id="upgradeText36" class="upgradeText"></div> <div id="upgradePrice36" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton37" class="upgradeButton" onclick="buyUpgrade(37)"></div> <div class="unupbutton"></div> <div id="upgradeBought37" class="bought"></div> <div id="upgradeName37" class="upgradeName"></div> <div id="upgradeText37" class="upgradeText"></div> <div id="upgradePrice37" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton38" class="upgradeButton" onclick="buyUpgrade(38)"></div> <div class="unupbutton"></div> <div id="upgradeBought38" class="bought"></div> <div id="upgradeName38" class="upgradeName"></div> <div id="upgradeText38" class="upgradeText"></div> <div id="upgradePrice38" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton39" class="upgradeButton" onclick="buyUpgrade(39)"></div> <div class="unupbutton"></div> <div id="upgradeBought39" class="bought"></div> <div id="upgradeName39" class="upgradeName"></div> <div id="upgradeText39" class="upgradeText"></div> <div id="upgradePrice39" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton40" class="upgradeButton" onclick="buyUpgrade(40)"></div> <div class="unupbutton"></div> <div id="upgradeBought40" class="bought"></div> <div id="upgradeName40" class="upgradeName"></div> <div id="upgradeText40" class="upgradeText"></div> <div id="upgradePrice40" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton41" class="upgradeButton" onclick="buyUpgrade(41)"></div> <div class="unupbutton"></div> <div id="upgradeBought41" class="bought"></div> <div id="upgradeName41" class="upgradeName"></div> <div id="upgradeText41" class="upgradeText"></div> <div id="upgradePrice41" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton42" class="upgradeButton" onclick="buyUpgrade(42)"></div> <div class="unupbutton"></div> <div id="upgradeBought42" class="bought"></div> <div id="upgradeName42" class="upgradeName"></div> <div id="upgradeText42" class="upgradeText"></div> <div id="upgradePrice42" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton43" class="upgradeButton" onclick="buyUpgrade(43)"></div> <div class="unupbutton"></div> <div id="upgradeBought43" class="bought"></div> <div id="upgradeName43" class="upgradeName"></div> <div id="upgradeText43" class="upgradeText"></div> <div id="upgradePrice43" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton44" class="upgradeButton" onclick="buyUpgrade(44)"></div> <div class="unupbutton"></div> <div id="upgradeBought44" class="bought"></div> <div id="upgradeName44" class="upgradeName"></div> <div id="upgradeText44" class="upgradeText"></div> <div id="upgradePrice44" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton45" class="upgradeButton" onclick="buyUpgrade(45)"></div> <div class="unupbutton"></div> <div id="upgradeBought45" class="bought"></div> <div id="upgradeName45" class="upgradeName"></div> <div id="upgradeText45" class="upgradeText"></div> <div id="upgradePrice45" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton46" class="upgradeButton" onclick="buyUpgrade(46)"></div> <div class="unupbutton"></div> <div id="upgradeBought46" class="bought"></div> <div id="upgradeName46" class="upgradeName"></div> <div id="upgradeText46" class="upgradeText"></div> <div id="upgradePrice46" class="upgradePrice"></div> </div>
+
+						<div class="upgrade"> <div id="upgradeButton47" class="upgradeButton" onclick="buyUpgrade(47)"></div> <div class="unupbutton"></div> <div id="upgradeBought47" class="bought"></div> <div id="upgradeName47" class="upgradeName"></div> <div id="upgradeText47" class="upgradeText"></div> <div id="upgradePrice47" class="upgradePrice"></div> </div>
+
+					</div>
+
+					<div id="display2" class="display"> 
+						<div class="menuTitle"> Achievements </div>
+
+					</div>
+
+					<div id="display3" class="display"> 
+						<div class="menuTitle"> Managers </div>
+
+						<div class="containerBuyAll"> 
+							<div class="buyAll textContainer" onclick="buyAllManagers()"><span class="text">Buy All</span></div>
+						</div>
+
+						<div class="upgrade"> <div id="managerButton1" class="upgradeButton" onclick="buyManager(1)"></div> <div class="unupbutton"></div> <div id="managerBought1" class="bought"></div> <div id="managerName1" class="upgradeName"></div> <div id="managerText1" class="upgradeText"></div> <div id="managerPrice1" class="upgradePrice"></div> </div>
+						<div class="upgrade"> <div id="managerButton2" class="upgradeButton" onclick="buyManager(2)"></div> <div class="unupbutton"></div> <div id="managerBought2" class="bought"></div> <div id="managerName2" class="upgradeName"></div> <div id="managerText2" class="upgradeText"></div> <div id="managerPrice2" class="upgradePrice"></div> </div>
+						<div class="upgrade"> <div id="managerButton3" class="upgradeButton" onclick="buyManager(3)"></div> <div class="unupbutton"></div> <div id="managerBought3" class="bought"></div> <div id="managerName3" class="upgradeName"></div> <div id="managerText3" class="upgradeText"></div> <div id="managerPrice3" class="upgradePrice"></div> </div>
+						<div class="upgrade"> <div id="managerButton4" class="upgradeButton" onclick="buyManager(4)"></div> <div class="unupbutton"></div> <div id="managerBought4" class="bought"></div> <div id="managerName4" class="upgradeName"></div> <div id="managerText4" class="upgradeText"></div> <div id="managerPrice4" class="upgradePrice"></div> </div>
+						<div class="upgrade"> <div id="managerButton5" class="upgradeButton" onclick="buyManager(5)"></div> <div class="unupbutton"></div> <div id="managerBought5" class="bought"></div> <div id="managerName5" class="upgradeName"></div> <div id="managerText5" class="upgradeText"></div> <div id="managerPrice5" class="upgradePrice"></div> </div>
+						<div class="upgrade"> <div id="managerButton6" class="upgradeButton" onclick="buyManager(6)"></div> <div class="unupbutton"></div> <div id="managerBought6" class="bought"></div> <div id="managerName6" class="upgradeName"></div> <div id="managerText6" class="upgradeText"></div> <div id="managerPrice6" class="upgradePrice"></div> </div>
+						<div class="upgrade"> <div id="managerButton7" class="upgradeButton" onclick="buyManager(7)"></div> <div class="unupbutton"></div> <div id="managerBought7" class="bought"></div> <div id="managerName7" class="upgradeName"></div> <div id="managerText7" class="upgradeText"></div> <div id="managerPrice7" class="upgradePrice"></div> </div>
+						<div class="upgrade"> <div id="managerButton8" class="upgradeButton" onclick="buyManager(8)"></div> <div class="unupbutton"></div> <div id="managerBought8" class="bought"></div> <div id="managerName8" class="upgradeName"></div> <div id="managerText8" class="upgradeText"></div> <div id="managerPrice8" class="upgradePrice"></div> </div>
+						<div class="upgrade"> <div id="managerButton9" class="upgradeButton" onclick="buyManager(9)"></div> <div class="unupbutton"></div> <div id="managerBought9" class="bought"></div> <div id="managerName9" class="upgradeName"></div> <div id="managerText9" class="upgradeText"></div> <div id="managerPrice9" class="upgradePrice"></div> </div>
+						<div class="upgrade"> <div id="managerButton10" class="upgradeButton" onclick="buyManager(10)"></div> <div class="unupbutton"></div> <div id="managerBought10" class="bought"></div>  <div id="managerName10" class="upgradeName"></div> <div id="managerText10" class="upgradeText"></div> <div id="managerPrice10" class="upgradePrice"></div> </div>
+
+					</div>
+
+					<div id="display4" class="display"> 
+						<div class="menuTitle"> Settings </div>
+						<div class="settingBox"> 
+							<div class="topText">Cash Earned: </div>
+							<div id="earned" class="bottomText"></div>
+						</div>
+						<div class="settingBox"> 
+							<div class="topText">All Time Cash Earned: </div>
+							<div id="allTimeEarned" class="bottomText"></div>
+						</div>
+						<div class="settingBox"> 
+							<div class="topText">Angel Investors: </div>
+							<div id="angels" class="bottomText"></div>
+						</div>
+						<div class="settingBox"> 
+							<div class="topText">Angel Investors gained on soft reset: </div>
+							<div id="angelsGain" class="bottomText"></div>
+						</div>
+
+						<div id="asdf1">
+							<div id="asdf2">(Each Angel Investor provides +2% investment value)</div>
+						</div>
+
+						<div class="settingBox">
+							<div id="softReset" onclick="softReset()">
+								<span class="resetText">Soft Reset</span>
+							</div>
+							<div id="hardReset" onclick="hardReset()">
+								<span class="resetText">Hard Reset</span>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div id="containerMenu">
+					<div id="menu1" class="menu textContainer" onclick="menu(1)">
+						<span class="text">Upgrades</span>
+					</div>
+					<div id="menu2" class="menu textContainer" onclick="menu(2)">
+						<span class="text">Achievements</span>
+					</div>
+					<div id="menu3" class="menu textContainer" onclick="menu(3)">
+						<span class="text">Manager</span>
+					</div>
+					<div id="menu4" class="menu textContainer" onclick="menu(4)">
+						<span class="text">Settings</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="containerSide">
+		<div id="speedText">Game<br>Speed</div>
+		<div id="speed1" class="sideButton textContainer" onclick="changeSpeed(1)"><span id="speedText1" class="text"></span></div>
+		<div id="speed2" class="sideButton textContainer" onclick="changeSpeed(2)"><span id="speedText2" class="text"></span></div>
+		<div id="speed3" class="sideButton textContainer" onclick="changeSpeed(3)"><span id="speedText3" class="text"></span></div>
+		<div id="speed4" class="sideButton textContainer" onclick="changeSpeed(4)"><span id="speedText4" class="text"></span></div>
+		<div id="speed5" class="sideButton textContainer" onclick="changeSpeed(5)"><span id="speedText5" class="text"></span></div>
+		<div id="buyText">Buy<br>Amount</div>
+		<div id="buy1" class="sideButton textContainer" onclick="changeBuy(1)"><span id="buyText1" class="text">asdf</span></div>
+		<div id="buy2" class="sideButton textContainer" onclick="changeBuy(2)"><span id="buyText2" class="text">asdf</span></div>
+		<div id="buy3" class="sideButton textContainer" onclick="changeBuy(3)"><span id="buyText3" class="text">asdf</span></div>
+		<div id="buy4" class="sideButton textContainer" onclick="changeBuy(4)"><span id="buyText4" class="text">asdf</span></div>
+	</div>
+
+	<div id="disclaimer" class="textContainer">
+		<span class="text">Disclaimer: <a href="http://hyperhippo.ca/games/adventure-capitalist/" target="_blank">Game</a> created by Hyper Hippo Games<br>This is a clone made for educational purposes only</span>
+	</div>
+
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
+	<script src="adjs.js"></script>
+
+</body>
