@@ -25,6 +25,9 @@ var game = {
     //reset bonus
     bonusDice: 0,
     bonusHP: 0,
+    deaths: 0,
+    totalTurns: 0,
+    totalKills: 0,
     
     //game messages
     text1: [
@@ -33,7 +36,7 @@ var game = {
     ],
     text2: [
         "You encountered a goblin!",
-        "message 2",
+        "You encountered Prototype Boss!",
         "message 3",
         "message 3",
         "message 4",
@@ -59,6 +62,7 @@ window.onload=function() {
 //Game
 function gameMessage() {
     game.turn++
+    game.totalTurns++
     document.getElementById("gameText").innerHTML = game.text1[0];
     
     rollDice10();
@@ -75,29 +79,51 @@ function gameMessage() {
 }
 function gameMessage2() {
     game.turn++
+    game.totalTurns++
     document.getElementById("gameText").innerHTML = game.text2[0];
     rollDice4();
     if (game.d4 > 1) {
         game.EHP--
-        evilHitPoints();
+        if (game.EHP < 1) {
+            game.kills++;
+            game.totalKills++;
+            document.getElementById("gameText2").innerHTML = "evil dead";
+            document.getElementById( "gameMessage" ).setAttribute( "onclick", "javascript: gameMessage3();" );
+            game.EHP = 10;
+        } else {
+            document.getElementById("gameText2").innerHTML = "You deal 1 damage to evil! " + game.EHP + " HP left!";
+        }
     } else {
         game.HP--
         document.getElementById("gameText2").innerHTML = "You take 1 damage! " + game.HP + " HP left!";
         hitPoints();
     }
-    
 }
 
-function evilHitPoints() {
-    updateScreen();
-    if (game.EHP < 1) {
-        document.getElementById("gameText2").innerHTML = "evil dead";
-        //code here to update button to gamemessage3
+function gameMessage3() {
+    game.turn++
+    game.totalTurns++
+    document.getElementById("gameText").innerHTML = game.text2[1];
+    rollDice6();
+    if (game.d6 > 3) {
+        game.EHP--
+        if (game.EHP < 1) {
+            game.kills++;
+            game.totalKills++;
+            document.getElementById("gameText2").innerHTML = "evil dead";
+            window.alert("You win!\nThanks for trying the prototype of my game!\n\nHere are the stats for your run!\n\nTotal turns: " + game.totalTurns + "\nTotal kills: " + game.totalKills + "\nTotal Deaths: " + game.deaths);
+            //document.getElementById( "gameMessage" ).setAttribute( "onclick", "javascript: gameMessage3();" );
+        } else {
+            document.getElementById("gameText2").innerHTML = "You deal 1 damage to evil! " + game.EHP + " HP left!";
+        }
     } else {
-        document.getElementById("gameText2").innerHTML = "You deal 1 damage to evil! " + game.EHP + " HP left!";
+        game.HP--
+        document.getElementById("gameText2").innerHTML = "You take 1 damage! " + game.HP + " HP left!";
+        hitPoints();
     }
-    
 }
+
+
 
 function hitPoints() {
     updateScreen();
@@ -110,7 +136,7 @@ function hitPoints() {
 }
 
 function gameOver() {
-    window.alert("Game Over!\nYou lasted " + game.turn + " turns!");
+    window.alert("Game Over!\nYou lasted " + game.turn + " turns!\n\n You gained 1 bonus HP!");
     //code to grab turns before reset
     game.turn = 0;
     game.d4 = 0;
@@ -120,7 +146,9 @@ function gameOver() {
     game.d12 = 0;
     game.d20 = 0;
     game.d100 = 0;
+    game.kills = 0;
     game.HP = 1 + game.bonusHP;
+    game.deaths++
     
     gameSave();
     gameReset();
@@ -149,6 +177,7 @@ function gameReset() {
     game.d12 = 0;
     game.d20 = 0;
     game.d100 = 0;
+    game.kills = 0;
     
     window.location.reload();
 }
@@ -220,5 +249,8 @@ function updateScreen() {
     document.getElementById("MP").innerHTML = game.MP;
     document.getElementById("bonusDice").innerHTML = game.bonusDice;
     document.getElementById("bonusHP").innerHTML = game.bonusHP;
-    document.getElementById("EHP").innerHTML =game.EHP;
+    document.getElementById("EHP").innerHTML = game.EHP;
+    document.getElementById("deaths").innerHTML = game.deaths;
+    document.getElementById("totalTurns").innerHTML = game.totalTurns;
+    document.getElementById("totalKills").innerHTML = game.totalKills;
 }
