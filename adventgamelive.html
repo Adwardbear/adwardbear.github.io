@@ -1,46 +1,82 @@
 <script type="text/javascript" src="advent.js"></script>
 <link rel="stylesheet" type="text/css" href="adventstyle.css" />
-
+<div id="header">
 <h1>Adventure Game Prototype</h1>
-<h2>User Screen</h2>
+<h2>User Screen <a href="changelog.html">Changelog</a></h2>
+<h3><span id="playerName"></span>'s Game.</h3>
+    </div>
 
 <div id="buttons">
-<p><button style="width:100px;height:50px;" onclick="gameSave()">Save</button></p>
-<p><button style="width:100px;height:50px;" onclick="gameLoad()">Load</button></p>
-<p><button style="width:100px;height:50px;" onclick="gameHardReset()">HARD Reset</button></p>
+    <div id="sysButtons">
+<button style="width:100px;height:50px;" onclick="gameSave()">Save</button>
+<button style="width:100px;height:50px;" onclick="gameLoad()">Load</button>
+<button style="width:100px;height:50px;" onclick="gameHardReset()">HARD Reset</button>
+        </div>
+    <div id="lvlUpButtons">
+<p><button style="width:50px;height:50px;display:none;" id="lvlSTR" onclick="lvlSTR()">STR</button>
+<button style="width:50px;height:50px;display:none;" id="lvlDEX" onclick="lvlDEX()">DEX</button>
+<button style="width:50px;height:50px;display:none;" id="lvlCON" onclick="lvlCON()">CON</button></p>
+<p><button style="width:50px;height:50px;display:none;" id="lvlINT" onclick="lvlINT()">INT</button>
+<button style="width:50px;height:50px;display:none;" id="lvlWIS" onclick="lvlWIS()">WIS</button>
+<button style="width:50px;height:50px;display:none;" id="lvlCHA" onclick="lvlCHA()">CHA</button></p>
+        </div>
     <br><br><br>
-<p><button style="width:200px;height:100px;" id="gameMessage" onclick="gameMessage()">Game Progress</button></p>
+    <div id="gameButtons">
+<p><button style="width:200px;height:100px;" id="gameMessage" onclick="gameMessage()">Game Begin</button></p>
+<p><button style="width:200px;height:100px;" id="encounterGen" onclick="encounterGen()">Find Evil!</button></p>
+<p><button style="width:200px;height:100px;" id="fightBattle" onclick="fightBattle()">Fight!</button></p>
+<p><button style="width:200px;height:100px;" id="runBattle" onclick="runBattle()">Run![nyi]</button></p>
+    </div>
 </div>
 
-<div id="dice">
-<p>Dice</p>
-<p>d4: <span id="d4">null</span></p>
-<p>d6: <span id="d6">null</span></p>
-<p>d8: <span id="d8">null</span></p>
-<p>d10: <span id="d10">null</span></p>
-<p>d12: <span id="d12">null</span></p>
-<p>d20: <span id="d20">null</span></p>
-<p>d100:<span id="d100">null</span></p>
+<div id="playerStats">
+<p>HP: <span id="HP">null</span></p>
+<p>MP: <span id="MP">null</span></p>
+<p>STR: <span id="STR">null</span></p>
+<p>DEX: <span id="DEX">null</span></p>
+<p>CON: <span id="CON">null</span></p>
+<p>INT: <span id="INT">null</span></p>
+<p>WIS: <span id="WIS">null</span></p>
+<p>CHA: <span id="CHA">null</span></p>
+<p>LVL: <span id="LVL">null</span></p>
+<p>EXP: <span id="EXP">null</span>/<span id="maxEXP">null</span></p>
+<p>Stat Points: <span id="statPoints">null</span></p>
 </div>
 
-<div id="stats">
+<div id="gameStats">
 <p>Stats</p>
 <p>Turn: <span id="turn">null</span></p>
 <p>Total Turns: <span id="totalTurns">null</span></p>
 <p>Kills: <span id="kills">null</span></p>
 <p>Total Kills: <span id="totalKills">null</span></p>
-<p>HP: <span id="HP">null</span></p>
-<p>MP: <span id="MP">null</span></p>
 <p>Deaths: <span id="deaths">null</span></p>
 <p>Reset Bonus</p>
 <p>Bonus Dice: <span id="bonusDice">null</span></p>
 <p>Bonus HP: <span id="bonusHP">null</span></p>
 <p>Evil HP: <span id="EHP">null</span></p>
+<p>Evil Lvl: <span id="eLVL">null</span></p>
 </div>
 
 <div id="gameBox">
     <h3>Game Text</h3>
     <p id="gameText">Game loaded/reset.</p>
-    <h3>Result</h3>
+    <h3>Game Text 2</h3>
     <p id="gameText2">Press the game progress button to start/continue!</p>
+    <h3>Player Action</h3>
+    <p id="gameText3">??</p>
+    <h3>Player Result</h3>
+    <p id="gameText4">??</p>
 </div>
+
+<div id="gameBoxEvil">
+    <h3>Evil</h3>
+    <p id="gameTextEvil">??</p>
+    <h3>Evil</h3>
+    <p id="gameTextEvil2">??</p>
+    <h3>Evil Action</h3>
+    <p id="gameTextEvil3">??</p>
+    <h3>Evil Result</h3>
+    <p id="gameTextEvil4">??</p>
+</div>
+
+

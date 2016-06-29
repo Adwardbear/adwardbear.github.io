@@ -1,19 +1,59 @@
-#buttons {
-    float:left;
-    padding: 50px;
+#header {
+    position: absolute;
+    right:75%;
+    top: 0;
+    padding: 10px;
+}
+
+#sysButtons {
+    position: absolute;
+    left: 75%;
+    top: 10;
+}
+
+#lvlUpButtons {
+    width: 308;
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+#gameButtons {
+    position: absolute;
+    top:200px;
+    left:10px;
 }
 
 #gameBox {
-    float:left;
+    position: absolute;
     padding: 50px;
+    top: 200px;
+    left: 210px;
 }
 
-#dice {
-    float:left;
-    padding:50px;
+#gameBoxEvil {
+    position: absolute;
+    padding: 50px;
+    top: 200px;
+    left: 610px;
 }
 
-#stats {
-    float:left;
+
+#playerStats {
+    position: absolute;
     padding: 50px;
+    top: 200px;
+    right: 210px;
+}
+
+#gameStats {
+    position: absolute;
+    padding: 50px;
+    top: 200px;
+    right: 10px;
 }
