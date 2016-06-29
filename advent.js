@@ -73,6 +73,12 @@ var game = {
     eLVL: 0,
     eAC: 0,
     
+    //BTN
+    gameMessageBtn: 1,
+    encounterGenBtn: 1,
+    fightBattleBtn: 0,
+    runBattleBtn: 0,
+    
     //reset bonus
     bonusDice: 0,
     bonusHP: 0,
@@ -199,30 +205,86 @@ window.onload=function() {
         //roll HP
         rollDice8();
         game.HP = game.d8 + 10;
+        buttonSaveCheck();
         updateScreen();
     } else {
         gameLoad();
-        if (game.progress == 0) {
-            document.getElementById("fightBattle").disabled = true;
-            document.getElementById("encounterGen").disabled = true;
-        } else if (game.progress == 1) {
-            document.getElementById("gameMessage").disabled = true;
-            document.getElementById("fightBattle").disabled = true;
-            document.getElementById("encounterGen").disabled = false;
-        } else if (game.progress == 2) {
-            document.getElementById("gameMessage").disabled = true;
-            document.getElementById("fightBattle").disabled = false;
-            document.getElementById("encounterGen").disabled = true;
-            document.getElementById("runBattle").disabled = false;
-        } else if (game.progress == 3) {
-            document.getElementById("gameMessage").disabled = true;
-            document.getElementById("fightBattle").disabled = false;
-            document.getElementById("encounterGen").disabled = true;
-            document.getElementById("runBattle").disabled = true;
-        }
+        buttonSaveCheck();
         updateScreen();
         checkStatPoints();
     }
+}
+
+//button save state check
+function buttonSaveCheck() {
+    if (game.gameMessageBtn == 0) {
+            gameMessageBtnDisabled();
+        console.log(game.gameMessageBtn+" gamemsg btn dis");
+        } else {
+            gameMessageBtnEnabled();
+            console.log(game.gameMessageBtn+" gamemsg btn enb");
+        }
+        if (game.encounterGenBtn == 0) {
+            encounterGenBtnDisabled();
+            console.log(game.encounterGenBtn+" enc btn dis");
+        } else {
+            encounterGenBtnEnabled();
+            console.log(game.encounterGenBtn+" enc btn enb");
+        }
+        if (game.fightBattleBtn == 0) {
+            fightBattleBtnDisabled();
+            console.log(game.fightBattleBtn+" fight btn dis");
+        } else {
+            fightBattleBtnEnabled();
+            console.log(game.fightBattleBtn+" fight btn enb");
+        }
+        if (game.runBattleBtn == 0) {
+            runBattleBtnDisabled();
+            console.log(game.runBattleBtn+" run btn dis");
+        } else {
+            runBattleBtnEnabled();
+            console.log(game.runBattleBtn+" run btn enb");
+        }
+}
+//button save states
+function gameMessageBtnEnabled() {
+    document.getElementById("gameMessage").disabled = false;
+    game.gameMessageBtn = 1;
+}
+
+function gameMessageBtnDisabled() {
+    document.getElementById("gameMessage").disabled = true;
+    game.gameMessageBtn = 0;
+}
+
+function encounterGenBtnEnabled() {
+    document.getElementById("encounterGen").disabled = false;
+    game.encounterGenBtn = 1;
+}
+
+function encounterGenBtnDisabled() {
+    document.getElementById("encounterGen").disabled = true;
+    game.encounterGenBtn = 0;
+}
+
+function fightBattleBtnEnabled() {
+    document.getElementById("fightBattle").disabled = false;
+    game.fightBattleBtn = 1;
+}
+
+function fightBattleBtnDisabled() {
+    document.getElementById("fightBattle").disabled = true;
+    game.fightBattleBtn = 0;
+}
+
+function runBattleBtnEnabled() {
+    document.getElementById("runBattle").disabled = false;
+    game.runBattleBtn = 1;
+}
+
+function runBattleBtnDisabled() {
+    document.getElementById("runBattle").disabled = true;
+    game.runBattleBtn = 0;
 }
 
 //main game
@@ -250,13 +312,13 @@ function gameMessage() {
 
 function spawnProtoBoss() {
     document.getElementById( "fightBattle" ).setAttribute( "onclick", "gameMessage3()" );
-        document.getElementById("gameMessage").innerHTML = "Boss Spawned";
-    document.getElementById("gameMessage").disabled = true;
-    document.getElementById("fightBattle").disabled = false;
-    document.getElementById("encounterGen").disabled = true;
-    document.getElementById("runBattle").disabled = true;
-        game.eAC = 12;
-        game.EHP = 50;
+    document.getElementById("gameMessage").innerHTML = "Boss Spawned";
+    gameMessageBtnDisabled();
+    fightBattleBtnEnabled();
+    encounterGenBtnDisabled();
+    runBattleBtnDisabled();
+    game.eAC = 12;
+    game.EHP = 50;
     document.getElementById("gameText").innerHTML = "Boss Battle";
     document.getElementById("gameText2").innerHTML = "no info";
     document.getElementById("gameTextEvil").innerHTML = game.text2[1];
@@ -340,92 +402,61 @@ function encounterGen() {
     //document.getElementById("gameTextEvil").innerHTML = game.text2[Math.floor(Math.random() * game.text2.length)];
     console.log(document.getElementById("gameTextEvil"));
     document.getElementById("gameTextEvil2").innerHTML = "No info.";
-    document.getElementById("encounterGen").disabled = true;
-    document.getElementById("fightBattle").disabled = false;
-    document.getElementById("runBattle").disabled = false;
-    document.getElementById("gameMessage").disabled = true;
+    encounterGenBtnDisabled();
+    fightBattleBtnEnabled();
+    runBattleBtnEnabled();
+    gameMessageBtnDisabled();
     
     if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Goblin!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Vampire!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
-        document.getElementById("runBattle").disabled = false
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Ghoul!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Cyclops!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Giant Rat!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Giant Arachnid!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Slime!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a G-g-g-g-host!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Witch!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Glitch!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false;
     } else {
         //MOB ID DOES NOT EXIST
         document.getElementById("gameTextEvil").innerHTML = game.text2[10];
@@ -433,10 +464,10 @@ function encounterGen() {
         game.eLVL = Math.floor(Math.random() * 2) + 1;
         game.eAC = 5;
         game.mobEXP = game.EHP / game.LVL * game.eLVL;
-        updateScreen();
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("fightBattle").disabled = false; 
-    } 
+    }
+    encounterGenBtnDisabled();
+    fightBattleBtnEnabled();
+    runBattleBtnEnabled();
 }
 
 function fightBattle() {
@@ -480,9 +511,9 @@ function fightBattle() {
             document.getElementById("gameText4").innerHTML = "You deal "+game.d4+" damage to evil! Evil is dead!";
             game.kills++;
             game.totalKills++;
-            document.getElementById("encounterGen").disabled = false;
-            document.getElementById("fightBattle").disabled = true;
-            document.getElementById("gameMessage").disabled = false;
+            encounterGenBtnEnabled();
+            fightBattleBtnDisabled();
+            gameMessageBtnEnabled();
             game.EXP = game.EXP + game.mobEXP;
             levelUp();
             updateScreen();
@@ -509,6 +540,9 @@ function runBattle() {
         document.getElementById("fightBattle").disabled = true;
         document.getElementById("encounterGen").disabled = false;
         document.getElementById("runBattle").disabled = true;
+        fightBattleBtnDisabled();
+        encounterGenBtnEnabled();
+        runBattleBtnDisabled();
     } else {
         console.log("Couldnt esc!")
         rollEvilDice20();
@@ -672,7 +706,13 @@ function gameOver() {
     game.kills = 0;
     game.deaths++
     game.EHP = 0;
-    game.progress = 1;
+    
+    //button reset
+    game.gameMessageBtn = 1;
+    game.encounterGenBtn = 1;
+    game.fightBattleBtn = 0;
+    game.runBattleBtn = 0;
+    
     gameSave();
     gameReset();
     updateScreen();
@@ -827,6 +867,4 @@ function updateScreen() {
 }
 
 //Game ticker
-window.setInterval(function(){
-    updateScreen(),checkStatPoints(),gameSave(),console.log("tick...")
-},10000);
+//window.setInterval(function(){updateScreen(),checkStatPoints(),gameSave(),console.log("tick...")},10000);
