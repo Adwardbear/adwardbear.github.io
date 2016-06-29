@@ -1,14 +1,21 @@
 //Adventure game inc
+
+//unused
 var bonus = {
     
 }
 
+//unused
 var goblin = {
     HP: 10, 
 }
+
+//unused
 var goblin2 = {
     HP: 12,
 }
+
+//used for character gen at start of game
 var char ={
     one: 0,
     two: 0,
@@ -109,11 +116,12 @@ var game = {
     ]
     
 }
-//auto load
+//auto load / char gen
 window.onload=function() {
     if(localStorage.getItem("gameSave") === null){
         document.getElementById("fightBattle").disabled = true;
         document.getElementById("encounterGen").disabled = true;
+        document.getElementById("runBattle").disabled = true;
         game.playerName = window.prompt("Username");
         document.getElementById("playerName").innerHTML = game.playerName;
         //Roll STR
@@ -205,6 +213,12 @@ window.onload=function() {
             document.getElementById("gameMessage").disabled = true;
             document.getElementById("fightBattle").disabled = false;
             document.getElementById("encounterGen").disabled = true;
+            document.getElementById("runBattle").disabled = false;
+        } else if (game.progress == 3) {
+            document.getElementById("gameMessage").disabled = true;
+            document.getElementById("fightBattle").disabled = false;
+            document.getElementById("encounterGen").disabled = true;
+            document.getElementById("runBattle").disabled = true;
         }
         updateScreen();
         checkStatPoints();
@@ -223,8 +237,8 @@ function gameMessage() {
     rollDice20();
     if (game.d20 > 1) {
         document.getElementById("gameText4").innerHTML = game.text1[3];
-        document.getElementById( "gameMessage" ).setAttribute( "disabled", "true" );
-        document.getElementById("gameMessage").innerHTML = "Continue"
+        document.getElementById( "gameMessage" ).setAttribute( "onclick", "spawnProtoBoss()" );
+        document.getElementById("gameMessage").innerHTML = "Spawn Boss"
         document.getElementById("encounterGen").disabled = false;
         game.progress = 1;
     } else {
@@ -234,14 +248,25 @@ function gameMessage() {
     }
 }
 
-//boss
-function gameMessage3() {
-    game.turn++
-    game.totalTurns++
+function spawnProtoBoss() {
+    document.getElementById( "fightBattle" ).setAttribute( "onclick", "gameMessage3()" );
+        document.getElementById("gameMessage").innerHTML = "Boss Spawned";
+    document.getElementById("gameMessage").disabled = true;
+    document.getElementById("fightBattle").disabled = false;
+    document.getElementById("encounterGen").disabled = true;
+    document.getElementById("runBattle").disabled = true;
+        game.eAC = 12;
+        game.EHP = 50;
     document.getElementById("gameText").innerHTML = "Boss Battle";
     document.getElementById("gameText2").innerHTML = "no info";
     document.getElementById("gameTextEvil").innerHTML = game.text2[1];
     document.getElementById("gameTextEvil2").innerHTML = "No info.";
+        updateScreen();
+}
+//boss
+function gameMessage3() {
+    game.turn++
+    game.totalTurns++
     //Evil
     rollEvilDice20();
     if (game.eD20 > 10) {
@@ -266,6 +291,7 @@ function gameMessage3() {
             game.kills++;
             game.totalKills++;
             document.getElementById("gameText2").innerHTML = "evil dead";
+            console.log("win");
             window.alert("You win!\nThanks for trying the prototype of my game!\n\nHere are the stats for your run!\n\nTotal turns: " + game.totalTurns + "\nTotal kills: " + game.totalKills + "\nTotal Deaths: " + game.deaths);
             //document.getElementById( "gameMessage" ).setAttribute( "onclick", "javascript: gameMessage3();" );
         } else {
@@ -314,6 +340,10 @@ function encounterGen() {
     //document.getElementById("gameTextEvil").innerHTML = game.text2[Math.floor(Math.random() * game.text2.length)];
     console.log(document.getElementById("gameTextEvil"));
     document.getElementById("gameTextEvil2").innerHTML = "No info.";
+    document.getElementById("encounterGen").disabled = true;
+    document.getElementById("fightBattle").disabled = false;
+    document.getElementById("runBattle").disabled = false;
+    document.getElementById("gameMessage").disabled = true;
     
     if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Goblin!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
@@ -331,6 +361,7 @@ function encounterGen() {
         updateScreen();
         document.getElementById("encounterGen").disabled = true;
         document.getElementById("fightBattle").disabled = false;
+        document.getElementById("runBattle").disabled = false
     } else if (document.getElementById("gameTextEvil").innerHTML===("You encountered a Ghoul!")) {
         game.EHP = Math.floor(Math.random() * 15) + 5;
         game.eLVL = Math.floor(Math.random() * 2) + 1;
@@ -451,6 +482,7 @@ function fightBattle() {
             game.totalKills++;
             document.getElementById("encounterGen").disabled = false;
             document.getElementById("fightBattle").disabled = true;
+            document.getElementById("gameMessage").disabled = false;
             game.EXP = game.EXP + game.mobEXP;
             levelUp();
             updateScreen();
@@ -464,6 +496,43 @@ function fightBattle() {
         document.getElementById("gameText4").innerHTML = game.battleMiss[0];
         console.log("Miss!");
         updateScreen();
+    }
+}
+
+function runBattle() {
+    rollDice20();
+    console.log("rolled"+game.d20);
+    game.d20 = game.d20 + game.AC - game.eAC;
+    console.log(game.d20=game.d20+game.AC-game.eAC);
+    if (game.d20 > 14) {
+        console.log("You ran away!");
+        document.getElementById("fightBattle").disabled = true;
+        document.getElementById("encounterGen").disabled = false;
+        document.getElementById("runBattle").disabled = true;
+    } else {
+        console.log("Couldnt esc!")
+        rollEvilDice20();
+        if (game.eD20 > game.AC) {
+            console.log("Evil hit!");
+            if (game.eLVL === 1) {
+                rollEvilDice4();
+                game.HP = game.HP - game.eD4;
+                document.getElementById("gameTextEvil3").innerHTML = game.battleText1[2];
+                document.getElementById("gameTextEvil4").innerHTML = "Evil deals "+game.eD4+" damage to "+game.playerName;
+                hitPoints();
+                updateScreen();
+            } else if (game.eLVL === 2) {
+                rollEvilDice6();
+                game.HP = game.HP - game.eD6;
+                document.getElementById("gameTextEvil3").innerHTML = game.battleText1[2];
+                document.getElementById("gameTextEvil4").innerHTML = "Evil deals "+game.eD6+" damage to "+game.playerName;
+                hitPoints();
+                updateScreen();
+            } else {
+                //do nothing
+            }
+        
+        }
     }
 }
 
