@@ -37,17 +37,17 @@
 
 #hold1{
     position: absolute;
-    top:240px;
+    top:250px;
     left:53px;
 }
 #hold2{
     position: absolute;
-    top:240px;
+    top:250px;
     left:172px;
 }
 #hold3{
     position: absolute;
-    top:240px;
+    top:250px;
     left:292px;
 }
 #spin{
@@ -57,6 +57,6 @@
 }
 #text{
     position: absolute;
-    top:270px;
+    top:280px;
     left: 50px;
 }
