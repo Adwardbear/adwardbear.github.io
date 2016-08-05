@@ -13,6 +13,12 @@ var machine = {
     reelTwoHold: false,
     reelThreeHold: false,
     symbolOne: "One",
+    scoreOne: 10,
+    scoreTwo: 20,
+    scoreThree: 40,
+    scoreFour: 80,
+    scoreFive: 160,
+    scoreSix: 320,
     symbolTwo: "Two",
     symbolThree: "Three",
     symbolFour: "Four",
@@ -45,6 +51,7 @@ function autoSpin(){
     document.getElementById("auto").innerHTML = "Stop Auto Spin!";
     document.getElementById("auto").setAttribute("onclick", "stopAutoSpin()");
     console.log("Auto Spinning!");
+    spin();
     myTimer = window.setInterval(function(){
         if(machine.holdCheat > 1){
         spin();
@@ -542,13 +549,10 @@ function doubleSix(){
 //x3 One
 function tripleOne(){
     if(document.getElementById("reelOne").innerHTML===("One")){
-        console.log("Check! one");
         if(document.getElementById("reelTwo").innerHTML===("One")){
-            console.log("Check! two");
             if(document.getElementById("reelThree").innerHTML===("One")){
-                console.log("Check! three");
-                machine.score = machine.score + 10;
-                console.log("Scored 10 points");
+                machine.score = machine.score + machine.scoreOne;
+                document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreOne)
                 document.getElementById("score").innerHTML = machine.score;
                 machine.hold = 0;
             }
@@ -560,8 +564,8 @@ function tripleTwo(){
     if(document.getElementById("reelOne").innerHTML===("Two")){
         if(document.getElementById("reelTwo").innerHTML===("Two")){
             if(document.getElementById("reelThree").innerHTML===("Two")){
-                machine.score = machine.score + 20;
-                console.log("Scored 20 points");
+                machine.score = machine.score + machine.scoreTwo;
+                document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreTwo)
                 document.getElementById("score").innerHTML = machine.score;
                 machine.hold = 0;
             }
@@ -573,8 +577,8 @@ function tripleThree(){
     if(document.getElementById("reelOne").innerHTML===("Three")){
         if(document.getElementById("reelTwo").innerHTML===("Three")){
             if(document.getElementById("reelThree").innerHTML===("Three")){
-                machine.score = machine.score + 30;
-                console.log("Scored 30 points");
+                machine.score = machine.score + machine.scoreThree;
+                document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreThree)
                 document.getElementById("score").innerHTML = machine.score;
                 machine.hold = 0;
             }
@@ -586,8 +590,8 @@ function tripleFour(){
     if(document.getElementById("reelOne").innerHTML===("Four")){
         if(document.getElementById("reelTwo").innerHTML===("Four")){
             if(document.getElementById("reelThree").innerHTML===("Four")){
-                machine.score = machine.score + 40;
-                console.log("Scored 40 points");
+                machine.score = machine.score + machine.scoreFour;
+                document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreFour)
                 document.getElementById("score").innerHTML = machine.score;
                 machine.hold = 0;
             }
@@ -599,8 +603,8 @@ function tripleFive(){
     if(document.getElementById("reelOne").innerHTML===("Five")){
         if(document.getElementById("reelTwo").innerHTML===("Five")){
             if(document.getElementById("reelThree").innerHTML===("Five")){
-                machine.score = machine.score + 50;
-                console.log("Scored 50 points");
+                machine.score = machine.score + machine.scoreFive;
+                document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreFive)
                 document.getElementById("score").innerHTML = machine.score;
                 machine.hold = 0;
             }
@@ -612,8 +616,8 @@ function tripleSix(){
     if(document.getElementById("reelOne").innerHTML===("Six")){
         if(document.getElementById("reelTwo").innerHTML===("Six")){
             if(document.getElementById("reelThree").innerHTML===("Six")){
-                machine.score = machine.score + 60;
-                console.log("Scored 60 points");
+                machine.score = machine.score + machine.scoreSix;
+                document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreSix)
                 document.getElementById("score").innerHTML = machine.score;
                 machine.hold = 0;
             }
