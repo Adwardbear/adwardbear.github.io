@@ -25,6 +25,12 @@ var machine = {
     holdCheat: 0,
     holdDisable: 0,
     nudge: 0,
+    autoSpin: false,
+}
+function updateScreen(){
+    document.getElementById("credit").innerHTML = machine.credit;
+    document.getElementById("hold").innerHTML = machine.hold;
+    checkHold();
 }
 //insert credit
 function insertCredit(){
@@ -33,14 +39,19 @@ function insertCredit(){
 }
 //auto spin
 function autoSpin(){
+    machine.autoSpin = true;
     document.getElementById("spinBtn").disabled = true;
     document.getElementById("text1").innerHTML = "Auto spinning!";
     document.getElementById("auto").innerHTML = "Stop Auto Spin!";
     document.getElementById("auto").setAttribute("onclick", "stopAutoSpin()");
     console.log("Auto Spinning!");
     myTimer = window.setInterval(function(){
-        spinDummy();
+        if(machine.holdCheat > 1){
+        spin();
         console.log("tick...");
+        } else {
+            spinHoldReset();
+        }
     },5000);
 }
 //stop auto spin
@@ -52,26 +63,16 @@ function stopAutoSpin(){
     document.getElementById("auto").innerHTML = "Auto Spin!"
     document.getElementById("auto").setAttribute("onclick", "autoSpin()");
 }
-//spins all reels
-/*function spinDummy(){
+
+function spin(){
+    if(machine.credit >9){
+        machine.credit = machine.credit - 10;
     document.getElementById("spinBtn").disabled = true;
     document.getElementById("auto").disabled = true;
-    myTimer2 = window.setInterval(function(){
-        rollReelOne();
-        rollReelTwo();
-        rollReelThree();
-        updateReelOneDummy();
-        updateReelTwoDummy();
-        updateReelThreeDummy();
-    },20);
-    setTimeout(function(){
-        window.clearInterval(myTimer2);
-        spin();
-        document.getElementById("spinBtn").disabled = false;
-        document.getElementById("auto").disabled = false;
-    }, 2000);
-}*/
-function spin(){
+    machine.holdCheat = 0;
+    machine.hold = 0;
+    updateScreen();
+    if(machine.reelOneHold == false){
     myTimer3 = window.setInterval(function(){
         rollReelOne();
         updateReelOneDummy();
@@ -79,9 +80,8 @@ function spin(){
     setTimeout(function(){
         window.clearInterval(myTimer3);
         updateReelOne();
-        document.getElementById("spinBtn").disabled = false;
-        document.getElementById("auto").disabled = false;
-    }, 2000);
+    }, 2000);}
+    if(machine.reelTwoHold == false){
     myTimer4 = window.setInterval(function(){
         rollReelTwo();
         updateReelTwoDummy();
@@ -89,9 +89,8 @@ function spin(){
     setTimeout(function(){
         window.clearInterval(myTimer4);
         updateReelTwo();
-        document.getElementById("spinBtn").disabled = false;
-        document.getElementById("auto").disabled = false;
-    }, 3000);
+    }, 3000);}
+    if(machine.reelThreeHold == false){
     myTimer5 = window.setInterval(function(){
         rollReelThree();
         updateReelThreeDummy();
@@ -99,63 +98,23 @@ function spin(){
     setTimeout(function(){
         window.clearInterval(myTimer5);
         updateReelThree();
-        document.getElementById("spinBtn").disabled = false;
-        document.getElementById("auto").disabled = false;
-    }, 4000);
-    setTimeout(function(){
-        checkHold();
-        holdCheatCheck();
-        checkHoldDisable();
-        machine.reelOneHold = false;
-        machine.reelTwoHold = false;
-        machine.reelThreeHold = false;
-        document.getElementById("held1").innerHTML = "-"
-        document.getElementById("held2").innerHTML = "-"
-        document.getElementById("held3").innerHTML = "-"
-        document.getElementById("nudge").innerHTML = machine.nudge;
-        document.getElementById("hold").innerHTML = machine.hold;
-    }, 4100);
+    }, 4000);}
     if(machine.holdDisable > 1){
+        if(machine.autoSpin == true){
+            document.getElementById("spinBtn").disabled = true;
+        }
         document.getElementById("spinBtn").setAttribute("onclick", "spinHoldReset()");
         console.log("hold disable detected!");
+    }
+    } else {
+        document.getElementById("text1").innerHTML = "No credit!";
     }
 }
-/*function spin(){
-    if(machine.credit > 9){
-        machine.holdCheat = 0;
-        machine.credit = machine.credit - 10;
-        //machine.turn++
-        //gameTurn();
-        rollReelOne();
-        rollReelTwo();
-        rollReelThree();
-        document.getElementById("credit").innerHTML = machine.credit;
-    } else {
-        console.log("Not enough credit! Insert 10 credit to continue.")
-        document.getElementById("text1").innerHTML = ("Not enough credit! Insert 10 credit to continue.")
-        document.getElementById("credit").innerHTML = machine.credit;
-    }
-    if(machine.holdDisable > 1){
-        document.getElementById("spinBtn").setAttribute("onclick", "spinHoldReset()");
-        console.log("hold disable detected!");
-    }
-    updateReelOne();
-    updateReelTwo();
-    updateReelThree();
-    checkHold();
-    holdCheatCheck();
-    checkHoldDisable();
-    machine.reelOneHold = false;
-    machine.reelTwoHold = false;
-    machine.reelThreeHold = false;
-    document.getElementById("held1").innerHTML = "-"
-    document.getElementById("held2").innerHTML = "-"
-    document.getElementById("held3").innerHTML = "-"
-    document.getElementById("nudge").innerHTML = machine.nudge;
-    document.getElementById("hold").innerHTML = machine.hold;
-}*/
 
 function spinHoldReset(){
+    if(machine.autoSpin == true){
+            document.getElementById("spinBtn").disabled = true;
+        }
     machine.holdDisable = 0;
     machine.hold = 0;
     console.log("resetting hold disable "+machine.holdDisable);
@@ -264,6 +223,36 @@ function updateReelOne(){
         document.getElementById("reelOne").innerHTML = machine.symbolSix;
         document.getElementById("reelOneDown").innerHTML = machine.symbolOne;
     }
+    if(machine.reelTwoHold == true){
+        if(machine.reelThreeHold == true){
+            console.log("Updating from reel1");
+            doubleOne();
+            doubleTwo();
+            doubleThree();
+            doubleFour();
+            doubleFive();
+            doubleSix();
+            tripleOne();
+            tripleTwo();
+            tripleThree();
+            tripleFour();
+            tripleFive();
+            tripleSix();
+        holdCheatCheck();
+        checkHoldDisable();
+        document.getElementById("held1").innerHTML = "-"
+        document.getElementById("held2").innerHTML = "-"
+        document.getElementById("held3").innerHTML = "-"
+        document.getElementById("nudge").innerHTML = machine.nudge;
+        document.getElementById("hold").innerHTML = machine.hold;
+        machine.reelOneHold = false;
+        machine.reelTwoHold = false;
+        machine.reelThreeHold = false;
+            checkHold();
+            document.getElementById("spinBtn").disabled = false;
+            document.getElementById("auto").disabled = false;
+        }
+    }
 }
 //update reel2
 function updateReelTwo(){
@@ -291,6 +280,36 @@ function updateReelTwo(){
         document.getElementById("reelTwoUp").innerHTML = machine.symbolFive;
         document.getElementById("reelTwo").innerHTML = machine.symbolSix;
         document.getElementById("reelTwoDown").innerHTML = machine.symbolOne;
+    }
+    if(machine.reelOneHold == true){
+        if(machine.reelThreeHold == true){
+            console.log("Updating from reel2");
+            doubleOne();
+            doubleTwo();
+            doubleThree();
+            doubleFour();
+            doubleFive();
+            doubleSix();
+            tripleOne();
+            tripleTwo();
+            tripleThree();
+            tripleFour();
+            tripleFive();
+            tripleSix();
+        holdCheatCheck();
+        checkHoldDisable();
+        document.getElementById("held1").innerHTML = "-"
+        document.getElementById("held2").innerHTML = "-"
+        document.getElementById("held3").innerHTML = "-"
+        document.getElementById("nudge").innerHTML = machine.nudge;
+        document.getElementById("hold").innerHTML = machine.hold;
+        machine.reelOneHold = false;
+        machine.reelTwoHold = false;
+        machine.reelThreeHold = false;
+            checkHold();
+            document.getElementById("spinBtn").disabled = false;
+            document.getElementById("auto").disabled = false;
+        }
     }
 }
 //update reel3
@@ -320,18 +339,36 @@ function updateReelThree(){
         document.getElementById("reelThree").innerHTML = machine.symbolSix;
         document.getElementById("reelThreeDown").innerHTML = machine.symbolOne;
     }
-    doubleOne();
-    doubleTwo();
-    doubleThree();
-    doubleFour();
-    doubleFive();
-    doubleSix();
-    tripleOne();
-    tripleTwo();
-    tripleThree();
-    tripleFour();
-    tripleFive();
-    tripleSix();
+    if(machine.reelThreeHold == true){
+        //DO NOTHING!
+    } else {
+        console.log("Updating from reel3");
+        doubleOne();
+        doubleTwo();
+        doubleThree();
+        doubleFour();
+        doubleFive();
+        doubleSix();
+        tripleOne();
+        tripleTwo();
+        tripleThree();
+        tripleFour();
+        tripleFive();
+        tripleSix();
+        holdCheatCheck();
+        checkHoldDisable();
+        document.getElementById("held1").innerHTML = "-"
+        document.getElementById("held2").innerHTML = "-"
+        document.getElementById("held3").innerHTML = "-"
+        document.getElementById("nudge").innerHTML = machine.nudge;
+        document.getElementById("hold").innerHTML = machine.hold;
+        machine.reelOneHold = false;
+        machine.reelTwoHold = false;
+        machine.reelThreeHold = false;
+        checkHold();
+        document.getElementById("spinBtn").disabled = false;
+        document.getElementById("auto").disabled = false;
+    }
 }
 //DUMMY REELS
 function updateReelOneDummy(){
@@ -513,6 +550,7 @@ function tripleOne(){
                 machine.score = machine.score + 10;
                 console.log("Scored 10 points");
                 document.getElementById("score").innerHTML = machine.score;
+                machine.hold = 0;
             }
         }
     }
@@ -525,6 +563,7 @@ function tripleTwo(){
                 machine.score = machine.score + 20;
                 console.log("Scored 20 points");
                 document.getElementById("score").innerHTML = machine.score;
+                machine.hold = 0;
             }
         }
     }
@@ -537,6 +576,7 @@ function tripleThree(){
                 machine.score = machine.score + 30;
                 console.log("Scored 30 points");
                 document.getElementById("score").innerHTML = machine.score;
+                machine.hold = 0;
             }
         }
     }
@@ -549,6 +589,7 @@ function tripleFour(){
                 machine.score = machine.score + 40;
                 console.log("Scored 40 points");
                 document.getElementById("score").innerHTML = machine.score;
+                machine.hold = 0;
             }
         }
     }
@@ -561,6 +602,7 @@ function tripleFive(){
                 machine.score = machine.score + 50;
                 console.log("Scored 50 points");
                 document.getElementById("score").innerHTML = machine.score;
+                machine.hold = 0;
             }
         }
     }
@@ -573,6 +615,7 @@ function tripleSix(){
                 machine.score = machine.score + 60;
                 console.log("Scored 60 points");
                 document.getElementById("score").innerHTML = machine.score;
+                machine.hold = 0;
             }
         }
     }
@@ -595,9 +638,10 @@ function tripleSix(){
 //
 function checkHold(){
     if(machine.hold > 1){
-        document.getElementById("spinBtn").disabled = false;
         window.clearInterval(myTimer);
         console.log("Found Holds - auto spinning stopped if active!");
+        machine.autoSpin = false;
+        document.getElementById("spinBtn").disabled = false;
         document.getElementById("text1").innerHTML = "Auto spinning disabled due to: Hold able!"
         document.getElementById("auto").innerHTML = "Auto Spin!"
         document.getElementById("auto").setAttribute("onclick", "autoSpin()");
