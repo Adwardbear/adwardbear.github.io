@@ -1,0 +1,62 @@
+#header{
+    position: absolute;
+    left:50px;
+}
+
+#stats{
+    position: absolute;
+    left:50px
+}
+
+#reel1{
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    top:80px;
+    left:50px;
+    border-style: double;
+}
+
+#reel2{
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    top:80px;
+    left:170px;
+    border-style: double;
+}
+
+#reel3{
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    top:80px;
+    left: 290px;
+    border-style: double;
+}
+
+#hold1{
+    position: absolute;
+    top:240px;
+    left:53px;
+}
+#hold2{
+    position: absolute;
+    top:240px;
+    left:172px;
+}
+#hold3{
+    position: absolute;
+    top:240px;
+    left:292px;
+}
+#spin{
+    position: absolute;
+    top:80px;
+    left:440px;
+}
+#text{
+    position: absolute;
+    top:250px;
+    left: 50px;
+}
