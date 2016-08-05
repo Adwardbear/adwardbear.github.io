@@ -75,7 +75,7 @@ var game = {
     
     //BTN
     gameMessageBtn: 1,
-    encounterGenBtn: 1,
+    encounterGenBtn: 0,
     fightBattleBtn: 0,
     runBattleBtn: 0,
     
@@ -85,6 +85,18 @@ var game = {
     deaths: 0,
     totalTurns: 0,
     totalKills: 0,
+    
+    
+    //text save stats
+    textSave1: "",
+    textSave2: "",
+    textSave3: "",
+    textSave4: "",
+    textSaveEvil1: "",
+    textSaveEvil2: "",
+    textSaveEvil3: "",
+    textSaveEvil4: "",
+    textSaveBtn1: "",
     
     //game messages
     text1: [
@@ -125,9 +137,6 @@ var game = {
 //auto load / char gen
 window.onload=function() {
     if(localStorage.getItem("gameSave") === null){
-        document.getElementById("fightBattle").disabled = true;
-        document.getElementById("encounterGen").disabled = true;
-        document.getElementById("runBattle").disabled = true;
         game.playerName = window.prompt("Username");
         document.getElementById("playerName").innerHTML = game.playerName;
         //Roll STR
@@ -209,9 +218,6 @@ window.onload=function() {
         updateScreen();
     } else {
         gameLoad();
-        buttonSaveCheck();
-        updateScreen();
-        checkStatPoints();
     }
 }
 
@@ -309,7 +315,7 @@ function gameMessage() {
         hitPoints();
     }
 }
-
+//spawn boss
 function spawnProtoBoss() {
     document.getElementById( "fightBattle" ).setAttribute( "onclick", "gameMessage3()" );
     document.getElementById("gameMessage").innerHTML = "Boss Spawned";
@@ -342,28 +348,35 @@ function gameMessage3() {
         document.getElementById("gameTextEvil3").innerHTML = game.battleText1[3];
         document.getElementById("gameTextEvil4").innerHTML = game.battleMiss[0];
     }
+    updateScreen();
     //Player
-    rollDice20();
-    if (game.d20 > 11) {
-        console.log("Hit!");
-        rollDice4();
-        game.EHP = game.EHP - game.d4;
-        if (game.EHP < 1) {
-            document.getElementById("gameText4").innerHTML = "You deal "+game.d4+" damage to evil! " + game.EHP + " HP left!";
-            game.kills++;
-            game.totalKills++;
-            document.getElementById("gameText2").innerHTML = "evil dead";
-            console.log("win");
-            window.alert("You win!\nThanks for trying the prototype of my game!\n\nHere are the stats for your run!\n\nTotal turns: " + game.totalTurns + "\nTotal kills: " + game.totalKills + "\nTotal Deaths: " + game.deaths);
-            //document.getElementById( "gameMessage" ).setAttribute( "onclick", "javascript: gameMessage3();" );
+    //THIS IS NOT WORKING
+    if (game.HP > 1) {
+        rollDice20;
+        if (game.d20 > 11) {
+            console.log("Hit!");
+            rollDice4();
+            game.EHP = game.EHP - game.d4;
+            if (game.EHP < 1) {
+                document.getElementById("gameText4").innerHTML = "You deal "+game.d4+" damage to evil! " + game.EHP + " HP left!";
+                game.kills++;
+                game.totalKills++;
+                document.getElementById("gameText2").innerHTML = "evil dead";
+                console.log("win");
+                window.alert("You win!\nThanks for trying the prototype of my game!\n\nHere are the stats for your run!\n\nTotal turns: " + game.totalTurns + "\nTotal kills: " + game.totalKills + "\nTotal Deaths: " + game.deaths);
+                //document.getElementById( "gameMessage" ).setAttribute( "onclick", "javascript: gameMessage3();" );
+            } else {
+                document.getElementById("gameText4").innerHTML = "You deal "+game.d4+" damage to evil! " + game.EHP + " HP left!";
+            }
         } else {
-            document.getElementById("gameText4").innerHTML = "You deal "+game.d4+" damage to evil! " + game.EHP + " HP left!";
+            document.getElementById("gameText3").innerHTML = game.battleText1[1];
+            document.getElementById("gameText4").innerHTML = game.battleMiss[0];
+            console.log("Miss!");
         }
     } else {
-        document.getElementById("gameText3").innerHTML = game.battleText1[1];
-        document.getElementById("gameText4").innerHTML = game.battleMiss[0];
-        console.log("Miss!");
+        console.log("your dead? game.hp shows: "+game.HP);
     }
+    updateScreen();
 }
 
 //prototype2
@@ -691,6 +704,7 @@ function gameOver() {
     if (game.statPoints == -1) {
         window.alert("Cheating detected\nGame Over!");
     } else {
+        
         window.alert("Game Over!\nYou lasted " + game.turn + " turns!\n\n You gained 1 bonus HP!");
         game.HP = 12 + game.bonusHP;
     }
@@ -705,7 +719,6 @@ function gameOver() {
     game.d100 = 0;
     game.kills = 0;
     game.deaths++
-    game.EHP = 0;
     
     //button reset
     game.gameMessageBtn = 1;
@@ -719,6 +732,15 @@ function gameOver() {
 }
 
 function gameSave() {
+    game.textSave1 = document.getElementById("gameText").innerHTML;
+    game.textSave2 = document.getElementById("gameText2").innerHTML;
+    game.textSave3 = document.getElementById("gameText3").innerHTML;
+    game.textSave4 = document.getElementById("gameText4").innerHTML;
+    game.textSaveEvil1 = document.getElementById("gameTextEvil").innerHTML;
+    game.textSaveEvil2 = document.getElementById("gameTextEvil2").innerHTML;
+    game.textSaveEvil3 = document.getElementById("gameTextEvil3").innerHTML;
+    game.textSaveEvil4 = document.getElementById("gameTextEvil4").innerHTML;
+    game.textSaveBtn1 = document.getElementById("gameMessage").innerHTML;
     localStorage.setItem("gameSave", JSON.stringify(game));
     console.log('saved');
 }
@@ -727,6 +749,17 @@ function gameLoad() {
     var result = localStorage.getItem("gameSave");
     game = JSON.parse(result);
     document.getElementById("playerName").innerHTML = game.playerName;
+    document.getElementById("gameText").innerHTML = game.textSave1;
+    document.getElementById("gameText2").innerHTML = game.textSave2;
+    document.getElementById("gameText3").innerHTML = game.textSave3;
+    document.getElementById("gameText4").innerHTML = game.textSave4;
+    document.getElementById("gameTextEvil").innerHTML = game.textSaveEvil1;
+    document.getElementById("gameTextEvil2").innerHTML = game.textSaveEvil2;
+    document.getElementById("gameTextEvil3").innerHTML = game.textSaveEvil3;
+    document.getElementById("gameTextEvil4").innerHTML = game.textSaveEvil4;
+    document.getElementById("gameMessage").innerHTML = game.textSaveBtn1;
+    buttonSaveCheck();
+    checkStatPoints();
     console.log('loaded');
     updateScreen();
 }
@@ -742,6 +775,7 @@ function gameReset() {
     game.d20 = 0;
     game.d100 = 0;
     game.kills = 0;
+    game.EHP = 0;
     
     window.location.reload();
 }
