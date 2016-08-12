@@ -12,20 +12,22 @@ var machine = {
     reelOneHold: false,
     reelTwoHold: false,
     reelThreeHold: false,
-    symbolOne: "Nudge",
+    symbolOne: "Nudge 1",
     scoreOne: 10,
     scoreTwo: 20,
     scoreThree: 40,
     scoreFour: 80,
     scoreFive: 160,
     scoreSix: 320,
-    symbolTwo: "<3",
-    symbolThree: ":)",
-    symbolFour: "<^>",
-    symbolFive: "(-(-_(-_-)_-)-)",
-    symbolSix: "-->>",
+    scoreFourCount: 0,
+    symbolTwo: "Heart 2",
+    symbolThree: ":) 3",
+    symbolFour: "BAR",
+    symbolFive: "(-(-_(-_-)_-)-) 5",
+    symbolSix: "Arrow 6",
     symbolSeven: "Nudge",
     score: 0,
+    scoreHold: 0,
     credit: 1000,
     turn: 0,
     hold: 0,
@@ -34,6 +36,30 @@ var machine = {
     nudge: 0,
     autoSpin: false,
 }
+
+var imgBar = '<img src="Slot_Bar.png" title="" alt="" style="width:80;height:30;" />';
+
+function symbolFourScore(){
+    if(machine.scoreFourCount == 2){
+        machine.hold = machine.hold + 2;
+        machine.scoreHold = machine.scoreHold + 1;
+    } else if(machine.scoreFourCount == 3){
+        console.log("add points todo");
+    }
+}
+
+function checkScoreHold(){
+    if(machine.scoreHold < 2){
+        machine.scoreHold = 0;
+        console.log("scorehold = 1, restting to 0")
+    } else
+    if(machine.scoreHold > 3){
+        machine.scoreHold = 0;
+        machine.scoreFourCount = 0;
+        console.log("scorehold greater than 3, resetting")
+    }
+}
+
 function updateScreen(){
     document.getElementById("credit").innerHTML = machine.credit;
     document.getElementById("hold").innerHTML = machine.hold;
@@ -78,8 +104,11 @@ function spin(){
     document.getElementById("spinBtn").disabled = true;
     document.getElementById("auto").disabled = true;
     machine.holdCheat = 0;
-        machine.holdDisable = 0;
+        //machine.holdDisable = 0;
     machine.hold = 0;
+        checkScoreHold();
+        machine.scoreHold = machine.scoreHold + 1;
+        console.log(machine.scoreHold+"scorehold");
     updateScreen();
     if(machine.reelOneHold == false){
     myTimer3 = window.setInterval(function(){
@@ -218,13 +247,14 @@ function updateReelOne(){
     } else if(machine.reelOne === 2){
         document.getElementById("reelOneUp").innerHTML = machine.symbolTwo;
         document.getElementById("reelOne").innerHTML = machine.symbolThree;
-        document.getElementById("reelOneDown").innerHTML = machine.symbolFour;
+        document.getElementById("reelOneDown").innerHTML = imgBar;
     } else if(machine.reelOne === 3){
         document.getElementById("reelOneUp").innerHTML = machine.symbolThree;
-        document.getElementById("reelOne").innerHTML = machine.symbolFour;
+        document.getElementById("reelOne").innerHTML = imgBar;
+        machine.scoreFourCount = machine.scoreFourCount + 1;
         document.getElementById("reelOneDown").innerHTML = machine.symbolFive;
     } else if(machine.reelOne === 4){
-        document.getElementById("reelOneUp").innerHTML = machine.symbolFour;
+        document.getElementById("reelOneUp").innerHTML = imgBar;
         document.getElementById("reelOne").innerHTML = machine.symbolFive;
         document.getElementById("reelOneDown").innerHTML = machine.symbolSix;
     } else if(machine.reelOne === 5){
@@ -247,6 +277,7 @@ function updateReelOne(){
             tripleFour();
             tripleFive();
             tripleSix();
+            symbolFourScore();
         holdCheatCheck();
         checkHoldDisable();
         document.getElementById("held1").innerHTML = "-"
@@ -276,13 +307,14 @@ function updateReelTwo(){
     } else if(machine.reelTwo === 2){
         document.getElementById("reelTwoUp").innerHTML = machine.symbolTwo;
         document.getElementById("reelTwo").innerHTML = machine.symbolThree;
-        document.getElementById("reelTwoDown").innerHTML = machine.symbolFour;
+        document.getElementById("reelTwoDown").innerHTML = imgBar;
     } else if(machine.reelTwo === 3){
         document.getElementById("reelTwoUp").innerHTML = machine.symbolThree;
-        document.getElementById("reelTwo").innerHTML = machine.symbolFour;
+        document.getElementById("reelTwo").innerHTML = imgBar;
+        machine.scoreFourCount = machine.scoreFourCount + 1;
         document.getElementById("reelTwoDown").innerHTML = machine.symbolFive;
     } else if(machine.reelTwo === 4){
-        document.getElementById("reelTwoUp").innerHTML = machine.symbolFour;
+        document.getElementById("reelTwoUp").innerHTML = imgBar;
         document.getElementById("reelTwo").innerHTML = machine.symbolFive;
         document.getElementById("reelTwoDown").innerHTML = machine.symbolSix;
     } else if(machine.reelTwo === 5){
@@ -305,6 +337,7 @@ function updateReelTwo(){
             tripleFour();
             tripleFive();
             tripleSix();
+            symbolFourScore();
         holdCheatCheck();
         checkHoldDisable();
         document.getElementById("held1").innerHTML = "-"
@@ -337,13 +370,14 @@ function updateReelThree(){
     } else if(machine.reelThree === 2){
         document.getElementById("reelThreeUp").innerHTML = machine.symbolTwo;
         document.getElementById("reelThree").innerHTML = machine.symbolThree;
-        document.getElementById("reelThreeDown").innerHTML = machine.symbolFour;
+        document.getElementById("reelThreeDown").innerHTML = imgBar;
     } else if(machine.reelThree === 3){
         document.getElementById("reelThreeUp").innerHTML = machine.symbolThree;
-        document.getElementById("reelThree").innerHTML = machine.symbolFour;
+        document.getElementById("reelThree").innerHTML = imgBar;
+        machine.scoreFourCount = machine.scoreFourCount + 1;
         document.getElementById("reelThreeDown").innerHTML = machine.symbolFive;
     } else if(machine.reelThree === 4){
-        document.getElementById("reelThreeUp").innerHTML = machine.symbolFour;
+        document.getElementById("reelThreeUp").innerHTML = imgBar;
         document.getElementById("reelThree").innerHTML = machine.symbolFive;
         document.getElementById("reelThreeDown").innerHTML = machine.symbolSix;
     } else if(machine.reelThree === 5){
@@ -365,6 +399,7 @@ function updateReelThree(){
         tripleFour();
         tripleFive();
         tripleSix();
+    symbolFourScore();
         holdCheatCheck();
         checkHoldDisable();
         document.getElementById("held1").innerHTML = "-"
@@ -393,13 +428,13 @@ function updateReelOneDummy(){
     } else if(machine.reelOne === 2){
         document.getElementById("reelOneUp").innerHTML = machine.symbolTwo;
         document.getElementById("reelOne").innerHTML = machine.symbolThree;
-        document.getElementById("reelOneDown").innerHTML = machine.symbolFour;
+        document.getElementById("reelOneDown").innerHTML = imgBar;
     } else if(machine.reelOne === 3){
         document.getElementById("reelOneUp").innerHTML = machine.symbolThree;
-        document.getElementById("reelOne").innerHTML = machine.symbolFour;
+        document.getElementById("reelOne").innerHTML = imgBar;
         document.getElementById("reelOneDown").innerHTML = machine.symbolFive;
     } else if(machine.reelOne === 4){
-        document.getElementById("reelOneUp").innerHTML = machine.symbolFour;
+        document.getElementById("reelOneUp").innerHTML = imgBar;
         document.getElementById("reelOne").innerHTML = machine.symbolFive;
         document.getElementById("reelOneDown").innerHTML = machine.symbolSix;
     } else if(machine.reelOne === 5){
@@ -421,13 +456,13 @@ function updateReelTwoDummy(){
     } else if(machine.reelTwo === 2){
         document.getElementById("reelTwoUp").innerHTML = machine.symbolTwo;
         document.getElementById("reelTwo").innerHTML = machine.symbolThree;
-        document.getElementById("reelTwoDown").innerHTML = machine.symbolFour;
+        document.getElementById("reelTwoDown").innerHTML = imgBar;
     } else if(machine.reelTwo === 3){
         document.getElementById("reelTwoUp").innerHTML = machine.symbolThree;
-        document.getElementById("reelTwo").innerHTML = machine.symbolFour;
+        document.getElementById("reelTwo").innerHTML = imgBar;
         document.getElementById("reelTwoDown").innerHTML = machine.symbolFive;
     } else if(machine.reelTwo === 4){
-        document.getElementById("reelTwoUp").innerHTML = machine.symbolFour;
+        document.getElementById("reelTwoUp").innerHTML = imgBar;
         document.getElementById("reelTwo").innerHTML = machine.symbolFive;
         document.getElementById("reelTwoDown").innerHTML = machine.symbolSix;
     } else if(machine.reelTwo === 5){
@@ -449,13 +484,13 @@ function updateReelThreeDummy(){
     } else if(machine.reelThree === 2){
         document.getElementById("reelThreeUp").innerHTML = machine.symbolTwo;
         document.getElementById("reelThree").innerHTML = machine.symbolThree;
-        document.getElementById("reelThreeDown").innerHTML = machine.symbolFour;
+        document.getElementById("reelThreeDown").innerHTML = imgBar;
     } else if(machine.reelThree === 3){
         document.getElementById("reelThreeUp").innerHTML = machine.symbolThree;
-        document.getElementById("reelThree").innerHTML = machine.symbolFour;
+        document.getElementById("reelThree").innerHTML = imgBar;
         document.getElementById("reelThreeDown").innerHTML = machine.symbolFive;
     } else if(machine.reelThree === 4){
-        document.getElementById("reelThreeUp").innerHTML = machine.symbolFour;
+        document.getElementById("reelThreeUp").innerHTML = imgBar;
         document.getElementById("reelThree").innerHTML = machine.symbolFive;
         document.getElementById("reelThreeDown").innerHTML = machine.symbolSix;
     } else if(machine.reelThree === 5){
@@ -482,13 +517,18 @@ function doubleOne(){
 //x2 Two
 function doubleTwo(){
     if(document.getElementById("reelOne").innerHTML===(machine.symbolTwo)){
+        console.log("found 2 on 1")
         if(document.getElementById("reelTwo").innerHTML===(machine.symbolTwo)){
+            console.log("found 2 on 2 (POINTS!)")
             machine.hold = machine.hold + 2;
         } else if(document.getElementById("reelThree").innerHTML===(machine.symbolTwo)){
+            console.log("found 2 on 3 (POINTS!)")
             machine.hold = machine.hold + 2;
         }
     } else if(document.getElementById("reelTwo").innerHTML===(machine.symbolTwo)){
+        console.log("found 2 on 2")
         if(document.getElementById("reelThree").innerHTML===(machine.symbolTwo)){
+            console.log("found 2 on 3 (POINTS!)")
             machine.hold = machine.hold + 2;
         }
     }
@@ -509,14 +549,14 @@ function doubleThree(){
 }
 //x2 Four
 function doubleFour(){
-    if(document.getElementById("reelOne").innerHTML===(machine.symbolFour)){
-        if(document.getElementById("reelTwo").innerHTML===(machine.symbolFour)){
+    if(document.getElementById("reelOne").innerHTML===(imgBar)){
+        if(document.getElementById("reelTwo").innerHTML===(imgBar)){
             machine.hold = machine.hold + 2;
-        } else if(document.getElementById("reelThree").innerHTML===(machine.symbolFour)){
+        } else if(document.getElementById("reelThree").innerHTML===(imgBar)){
             machine.hold = machine.hold + 2;
         }
-    } else if(document.getElementById("reelTwo").innerHTML===(machine.symbolFour)){
-        if(document.getElementById("reelThree").innerHTML===(machine.symbolFour)){
+    } else if(document.getElementById("reelTwo").innerHTML===(imgBar)){
+        if(document.getElementById("reelThree").innerHTML===(imgBar)){
             machine.hold = machine.hold + 2;
         }
     }
@@ -590,9 +630,9 @@ function tripleThree(){
 }
 //x3 Four
 function tripleFour(){
-    if(document.getElementById("reelOne").innerHTML===(machine.symbolFour)){
-        if(document.getElementById("reelTwo").innerHTML===(machine.symbolFour)){
-            if(document.getElementById("reelThree").innerHTML===(machine.symbolFour)){
+    if(document.getElementById("reelOne").innerHTML===(imgBar)){
+        if(document.getElementById("reelTwo").innerHTML===(imgBar)){
+            if(document.getElementById("reelThree").innerHTML===(imgBar)){
                 machine.score = machine.score + machine.scoreFour;
                 document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreFour)
                 document.getElementById("score").innerHTML = machine.score;
