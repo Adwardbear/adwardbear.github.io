@@ -12,18 +12,19 @@ var machine = {
     reelOneHold: false,
     reelTwoHold: false,
     reelThreeHold: false,
-    symbolOne: "One",
+    symbolOne: "Nudge",
     scoreOne: 10,
     scoreTwo: 20,
     scoreThree: 40,
     scoreFour: 80,
     scoreFive: 160,
     scoreSix: 320,
-    symbolTwo: "Two",
-    symbolThree: "Three",
-    symbolFour: "Four",
-    symbolFive: "Five",
-    symbolSix: "Six",
+    symbolTwo: "<3",
+    symbolThree: ":)",
+    symbolFour: "<^>",
+    symbolFive: "(-(-_(-_-)_-)-)",
+    symbolSix: "-->>",
+    symbolSeven: "Nudge",
     score: 0,
     credit: 1000,
     turn: 0,
@@ -77,6 +78,7 @@ function spin(){
     document.getElementById("spinBtn").disabled = true;
     document.getElementById("auto").disabled = true;
     machine.holdCheat = 0;
+        machine.holdDisable = 0;
     machine.hold = 0;
     updateScreen();
     if(machine.reelOneHold == false){
@@ -317,6 +319,9 @@ function updateReelTwo(){
             document.getElementById("spinBtn").disabled = false;
             document.getElementById("auto").disabled = false;
         }
+    } else if(machine.reelThreeHold == true){
+            console.log("testtest");
+            updateReelThree();
     }
 }
 //update reel3
@@ -346,9 +351,7 @@ function updateReelThree(){
         document.getElementById("reelThree").innerHTML = machine.symbolSix;
         document.getElementById("reelThreeDown").innerHTML = machine.symbolOne;
     }
-    if(machine.reelThreeHold == true){
-        //DO NOTHING!
-    } else {
+    
         console.log("Updating from reel3");
         doubleOne();
         doubleTwo();
@@ -375,7 +378,7 @@ function updateReelThree(){
         checkHold();
         document.getElementById("spinBtn").disabled = false;
         document.getElementById("auto").disabled = false;
-    }
+    
 }
 //DUMMY REELS
 function updateReelOneDummy(){
@@ -464,93 +467,93 @@ function updateReelThreeDummy(){
 //scoring
 //x2 One
 function doubleOne(){
-    if(document.getElementById("reelOne").innerHTML===("One")){
-        if(document.getElementById("reelTwo").innerHTML===("One")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolOne)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolOne)){
             machine.hold = machine.hold + 2;
-        } else if(document.getElementById("reelThree").innerHTML===("One")){
+        } else if(document.getElementById("reelThree").innerHTML===(machine.symbolOne)){
             machine.hold = machine.hold + 2;
         }
-    } else if(document.getElementById("reelTwo").innerHTML===("One")){
-        if(document.getElementById("reelThree").innerHTML===("One")){
+    } else if(document.getElementById("reelTwo").innerHTML===(machine.symbolOne)){
+        if(document.getElementById("reelThree").innerHTML===(machine.symbolOne)){
             machine.hold = machine.hold + 2;
         }
     }
 }
 //x2 Two
 function doubleTwo(){
-    if(document.getElementById("reelOne").innerHTML===("Two")){
-        if(document.getElementById("reelTwo").innerHTML===("Two")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolTwo)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolTwo)){
             machine.hold = machine.hold + 2;
-        } else if(document.getElementById("reelThree").innerHTML===("Two")){
+        } else if(document.getElementById("reelThree").innerHTML===(machine.symbolTwo)){
             machine.hold = machine.hold + 2;
         }
-    } else if(document.getElementById("reelTwo").innerHTML===("Two")){
-        if(document.getElementById("reelThree").innerHTML===("Two")){
+    } else if(document.getElementById("reelTwo").innerHTML===(machine.symbolTwo)){
+        if(document.getElementById("reelThree").innerHTML===(machine.symbolTwo)){
             machine.hold = machine.hold + 2;
         }
     }
 }
 //x2 Three
 function doubleThree(){
-    if(document.getElementById("reelOne").innerHTML===("Three")){
-        if(document.getElementById("reelTwo").innerHTML===("Three")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolThree)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolThree)){
             machine.hold = machine.hold + 2;
-        } else if(document.getElementById("reelThree").innerHTML===("Three")){
+        } else if(document.getElementById("reelThree").innerHTML===(machine.symbolThree)){
             machine.hold = machine.hold + 2;
         }
-    } else if(document.getElementById("reelTwo").innerHTML===("Three")){
-        if(document.getElementById("reelThree").innerHTML===("Three")){
+    } else if(document.getElementById("reelTwo").innerHTML===(machine.symbolThree)){
+        if(document.getElementById("reelThree").innerHTML===(machine.symbolThree)){
             machine.hold = machine.hold + 2;
         }
     }
 }
 //x2 Four
 function doubleFour(){
-    if(document.getElementById("reelOne").innerHTML===("Four")){
-        if(document.getElementById("reelTwo").innerHTML===("Four")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolFour)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolFour)){
             machine.hold = machine.hold + 2;
-        } else if(document.getElementById("reelThree").innerHTML===("Four")){
+        } else if(document.getElementById("reelThree").innerHTML===(machine.symbolFour)){
             machine.hold = machine.hold + 2;
         }
-    } else if(document.getElementById("reelTwo").innerHTML===("Four")){
-        if(document.getElementById("reelThree").innerHTML===("Four")){
+    } else if(document.getElementById("reelTwo").innerHTML===(machine.symbolFour)){
+        if(document.getElementById("reelThree").innerHTML===(machine.symbolFour)){
             machine.hold = machine.hold + 2;
         }
     }
 }
 //x2 Five
 function doubleFive(){
-    if(document.getElementById("reelOne").innerHTML===("Five")){
-        if(document.getElementById("reelTwo").innerHTML===("Five")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolFive)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolFive)){
             machine.hold = machine.hold + 2;
-        } else if(document.getElementById("reelThree").innerHTML===("Five")){
+        } else if(document.getElementById("reelThree").innerHTML===(machine.symbolFive)){
             machine.hold = machine.hold + 2;
         }
-    } else if(document.getElementById("reelTwo").innerHTML===("Five")){
-        if(document.getElementById("reelThree").innerHTML===("Five")){
+    } else if(document.getElementById("reelTwo").innerHTML===(machine.symbolFive)){
+        if(document.getElementById("reelThree").innerHTML===(machine.symbolFive)){
             machine.hold = machine.hold + 2;
         }
     }
 }
 //x2 Six
 function doubleSix(){
-    if(document.getElementById("reelOne").innerHTML===("Six")){
-        if(document.getElementById("reelTwo").innerHTML===("Six")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolSix)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolSix)){
             machine.hold = machine.hold + 2;
-        } else if(document.getElementById("reelThree").innerHTML===("Six")){
+        } else if(document.getElementById("reelThree").innerHTML===(machine.symbolSix)){
             machine.hold = machine.hold + 2;
         }
-    } else if(document.getElementById("reelTwo").innerHTML===("Six")){
-        if(document.getElementById("reelThree").innerHTML===("Six")){
+    } else if(document.getElementById("reelTwo").innerHTML===(machine.symbolSix)){
+        if(document.getElementById("reelThree").innerHTML===(machine.symbolSix)){
             machine.hold = machine.hold + 2;
         }
     }
 }
 //x3 One
 function tripleOne(){
-    if(document.getElementById("reelOne").innerHTML===("One")){
-        if(document.getElementById("reelTwo").innerHTML===("One")){
-            if(document.getElementById("reelThree").innerHTML===("One")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolOne)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolOne)){
+            if(document.getElementById("reelThree").innerHTML===(machine.symbolOne)){
                 machine.score = machine.score + machine.scoreOne;
                 document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreOne)
                 document.getElementById("score").innerHTML = machine.score;
@@ -561,9 +564,9 @@ function tripleOne(){
 }
 //x3 Two
 function tripleTwo(){
-    if(document.getElementById("reelOne").innerHTML===("Two")){
-        if(document.getElementById("reelTwo").innerHTML===("Two")){
-            if(document.getElementById("reelThree").innerHTML===("Two")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolTwo)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolTwo)){
+            if(document.getElementById("reelThree").innerHTML===(machine.symbolTwo)){
                 machine.score = machine.score + machine.scoreTwo;
                 document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreTwo)
                 document.getElementById("score").innerHTML = machine.score;
@@ -574,9 +577,9 @@ function tripleTwo(){
 }
 //x3 Three
 function tripleThree(){
-    if(document.getElementById("reelOne").innerHTML===("Three")){
-        if(document.getElementById("reelTwo").innerHTML===("Three")){
-            if(document.getElementById("reelThree").innerHTML===("Three")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolThree)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolThree)){
+            if(document.getElementById("reelThree").innerHTML===(machine.symbolThree)){
                 machine.score = machine.score + machine.scoreThree;
                 document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreThree)
                 document.getElementById("score").innerHTML = machine.score;
@@ -587,9 +590,9 @@ function tripleThree(){
 }
 //x3 Four
 function tripleFour(){
-    if(document.getElementById("reelOne").innerHTML===("Four")){
-        if(document.getElementById("reelTwo").innerHTML===("Four")){
-            if(document.getElementById("reelThree").innerHTML===("Four")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolFour)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolFour)){
+            if(document.getElementById("reelThree").innerHTML===(machine.symbolFour)){
                 machine.score = machine.score + machine.scoreFour;
                 document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreFour)
                 document.getElementById("score").innerHTML = machine.score;
@@ -600,9 +603,9 @@ function tripleFour(){
 }
 //x3 Five
 function tripleFive(){
-    if(document.getElementById("reelOne").innerHTML===("Five")){
-        if(document.getElementById("reelTwo").innerHTML===("Five")){
-            if(document.getElementById("reelThree").innerHTML===("Five")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolFive)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolFive)){
+            if(document.getElementById("reelThree").innerHTML===(machine.symbolFive)){
                 machine.score = machine.score + machine.scoreFive;
                 document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreFive)
                 document.getElementById("score").innerHTML = machine.score;
@@ -613,9 +616,9 @@ function tripleFive(){
 }
 //x3 Six
 function tripleSix(){
-    if(document.getElementById("reelOne").innerHTML===("Six")){
-        if(document.getElementById("reelTwo").innerHTML===("Six")){
-            if(document.getElementById("reelThree").innerHTML===("Six")){
+    if(document.getElementById("reelOne").innerHTML===(machine.symbolSix)){
+        if(document.getElementById("reelTwo").innerHTML===(machine.symbolSix)){
+            if(document.getElementById("reelThree").innerHTML===(machine.symbolSix)){
                 machine.score = machine.score + machine.scoreSix;
                 document.getElementById("text1").innerHTML = ("You scored: "+machine.scoreSix)
                 document.getElementById("score").innerHTML = machine.score;
