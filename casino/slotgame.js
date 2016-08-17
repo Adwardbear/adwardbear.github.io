@@ -1,3 +1,14 @@
+/*
+TODO
+score4reel1
+score4reel2
+score4reel3
+
+scores reset when their reel rolls (or dummy rolls)
+
+if 4-1 and 4-2 are true give holds
+all 3 give points
+*/
 var myTimer;
 var myTimer2;
 var myTimer3;
