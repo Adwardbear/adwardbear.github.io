@@ -47,17 +47,23 @@ var machine = {
     holdDisable: 0,
     nudge: 0,
     autoSpin: false,
+    reelOneScoreFour: false,
+    reelTwoScoreFour: false,
+    reelThreeScoreFour: false,
 }
 
 var imgBar = '<img src="Slot_Bar.png" title="" alt="" style="width:80;height:30;" />';
 
-function symbolFourScore(){
-    if(machine.scoreFourCount == 1){
-        machine.scoreFourCount = 0;
-    }
-    if(machine.scoreFourCount == 2){
-        machine.hold = machine.hold + 2;
-        console.log("2 BARS HOLD")
+function findScore(){
+    //find score one
+    
+    //find score two
+    
+    //find score three
+    
+    //find score four
+    if(machine.reelOneScoreFour == true){
+        
     }
 }
 
@@ -267,7 +273,8 @@ function updateReelOne(){
     } else if(machine.reelOne === 3){
         document.getElementById("reelOneUp").innerHTML = machine.symbolThree;
         document.getElementById("reelOne").innerHTML = imgBar;
-        machine.scoreFourCount = machine.scoreFourCount + 1;
+        machine.reelOneScoreFour = true;
+        //machine.scoreFourCount = machine.scoreFourCount + 1;
         document.getElementById("reelOneDown").innerHTML = machine.symbolFive;
     } else if(machine.reelOne === 4){
         document.getElementById("reelOneUp").innerHTML = imgBar;
@@ -326,7 +333,8 @@ function updateReelTwo(){
     } else if(machine.reelTwo === 3){
         document.getElementById("reelTwoUp").innerHTML = machine.symbolThree;
         document.getElementById("reelTwo").innerHTML = imgBar;
-        machine.scoreFourCount = machine.scoreFourCount + 1;
+        machine.reelTwoScoreFour = true;
+        //machine.scoreFourCount = machine.scoreFourCount + 1;
         document.getElementById("reelTwoDown").innerHTML = machine.symbolFive;
     } else if(machine.reelTwo === 4){
         document.getElementById("reelTwoUp").innerHTML = imgBar;
@@ -388,7 +396,8 @@ function updateReelThree(){
     } else if(machine.reelThree === 3){
         document.getElementById("reelThreeUp").innerHTML = machine.symbolThree;
         document.getElementById("reelThree").innerHTML = imgBar;
-        machine.scoreFourCount = machine.scoreFourCount + 1;
+        machine.reelThreeScoreFour = true;
+        //machine.scoreFourCount = machine.scoreFourCount + 1;
         document.getElementById("reelThreeDown").innerHTML = machine.symbolFive;
     } else if(machine.reelThree === 4){
         document.getElementById("reelThreeUp").innerHTML = imgBar;
@@ -562,18 +571,18 @@ function doubleThree(){
 }
 //x2 Four
 function doubleFour(){
-    if(document.getElementById("reelOne").innerHTML==='<img src="Slot_Bar.png" title="" alt="" style="width:80;height:30;" />'){
+    if(machine.reelOneScoreFour == true){
         console.log("Yes");
-        if(document.getElementById("reelTwo").innerHTML==='<img src="Slot_Bar.png" title="" alt="" style="width:80;height:30;" />'){
+        if(machine.reelTwoScoreFour == true){
             console.log("Yes");
             machine.hold = machine.hold + 2;
-        } else if(document.getElementById("reelThree").innerHTML==='<img src="Slot_Bar.png" title="" alt="" style="width:80;height:30;" />'){
+        } else if(machine.reelThreeScoreFour == true){
             console.log("Yes");
             machine.hold = machine.hold + 2;
         }
-    } else if(document.getElementById("reelTwo").innerHTML==='<img src="Slot_Bar.png" title="" alt="" style="width:80;height:30;" />'){
+    } else if(machine.reelTwoScoreFour == true){
         console.log("Yes");
-        if(document.getElementById("reelThree").innerHTML==='<img src="Slot_Bar.png" title="" alt="" style="width:80;height:30;" />'){
+        if(machine.reelThreeScoreFour == true){
             console.log("Yes");
             machine.hold = machine.hold + 2;
         }
