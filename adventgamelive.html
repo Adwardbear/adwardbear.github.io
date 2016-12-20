@@ -1,9 +1,9 @@
 <script type="text/javascript" src="advent.js"></script>
 <link rel="stylesheet" type="text/css" href="adventstyle.css" />
 <div id="header">
-<h1>Adventure Game Prototype</h1>
-<h2>User Screen <a href="changelog.html">Changelog</a></h2>
-<h3><span id="playerName"></span>'s Game.</h3>
+<h2>Adventure Game Prototype</h2>
+<h3>User Screen <a href="changelog.html">Changelog</a></h3>
+<h4><span id="playerName"></span>'s Game.</h4>
     </div>
 
 <div id="buttons">
@@ -11,6 +11,7 @@
 <button style="width:100px;height:50px;" onclick="gameSave()">Save</button>
 <button style="width:100px;height:50px;" onclick="gameLoad()">Load</button>
 <button style="width:100px;height:50px;" onclick="gameHardReset()">HARD Reset</button>
+<button style="width:100px;height:50px;" onclick="gameHelp">Help</button>
         </div>
     <div id="lvlUpButtons">
 <p><button style="width:50px;height:50px;display:none;" id="lvlSTR" onclick="lvlSTR()">STR</button>
@@ -30,6 +31,7 @@
 </div>
 
 <div id="playerStats">
+    <P><b>Player Stats</b></P>
 <p>HP: <span id="HP">null</span></p>
 <p>MP: <span id="MP">null</span></p>
 <p>STR: <span id="STR">null</span></p>
@@ -44,13 +46,13 @@
 </div>
 
 <div id="gameStats">
-<p>Stats</p>
+    <p><b>Game Stats</b></p>
 <p>Turn: <span id="turn">null</span></p>
 <p>Total Turns: <span id="totalTurns">null</span></p>
 <p>Kills: <span id="kills">null</span></p>
 <p>Total Kills: <span id="totalKills">null</span></p>
 <p>Deaths: <span id="deaths">null</span></p>
-<p>Reset Bonus</p>
+<p><b>Reset Bonus</b></p>
 <p>Bonus Dice: <span id="bonusDice">null</span></p>
 <p>Bonus HP: <span id="bonusHP">null</span></p>
 <p>Evil HP: <span id="EHP">null</span></p>
@@ -62,6 +64,8 @@
     <p id="gameText">Game loaded/reset.</p>
     <h3>Game Text 2</h3>
     <p id="gameText2">Press the game progress button to start/continue!</p>
+</div>
+<div id="gameBox2">
     <h3>Player Action</h3>
     <p id="gameText3">??</p>
     <h3>Player Result</h3>
@@ -73,10 +77,59 @@
     <p id="gameTextEvil">??</p>
     <h3>Evil</h3>
     <p id="gameTextEvil2">??</p>
+</div>
+<div id="gameBoxEvil2">
     <h3>Evil Action</h3>
     <p id="gameTextEvil3">??</p>
     <h3>Evil Result</h3>
     <p id="gameTextEvil4">??</p>
 </div>
 
+<div id="gameMap">
+    <h3>Map</h3>
+    <style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+    </style>
+    <table style="width:100%;">
+  <tr>
+    <th>•</th>
+    <th>•</th>
+    <th>•</th>
+      <th>•</th>
+      <th>•</th>
+  </tr>
+  <tr>
+    <td>•</td>
+    <td>•</td>
+    <td>•</td>
+    <th>•</th>
+    <th>•</th>
+  </tr>
+  <tr>
+    <td>•</td>
+    <td>•</td>
+    <td>◙</td>
+    <th>•</th>
+    <th>•</th>
+  </tr>
+  <tr>
+    <td>•</td>
+    <td>•</td>
+    <td>•</td>
+    <th>•</th>
+    <th>•</th>
+  </tr>
+        <tr>
+    <td>•</td>
+    <td>•</td>
+    <td>•</td>
+    <th>•</th>
+    <th>•</th>
+  </tr>
+</table>
+</div>
 

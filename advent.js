@@ -212,8 +212,11 @@ window.onload=function() {
         console.log("Removing: "+Math.min(char.one, char.two, char.three, char.four));
         game.CHA = char.one+char.two+char.three+char.four-Math.min(char.one, char.two, char.three, char.four);
         //roll HP
+        console.log("Rolling HP");
         rollDice8();
         game.HP = game.d8 + 10;
+        //game.HP = game.HP + game.CON/4;
+        console.log("something");
         buttonSaveCheck();
         updateScreen();
     } else {

@@ -1,20 +1,22 @@
 #header {
+    border-style: double;
     position: absolute;
-    right:75%;
+    left:10px;
     top: 0;
     padding: 10px;
 }
 
 #sysButtons {
-    position: absolute;
-    left: 75%;
+    border-style: double;
+    float:right;
+    left: 70%;
     top: 10;
 }
 
 #lvlUpButtons {
     width: 308;
-    
-    position: absolute;
+    border-style: double;
+    position: asabsolute;
     top:0;
     bottom: 0;
     left: 0;
@@ -24,36 +26,68 @@
 }
 
 #gameButtons {
+    border-style: double;
     position: absolute;
     top:200px;
     left:10px;
+    padding: 10px;
 }
 
 #gameBox {
+    border-style: double;
     position: absolute;
-    padding: 50px;
+    padding: 10px;
     top: 200px;
-    left: 210px;
+    left: 260px;
+    
+}
+#gameBox2 {
+    border-style: double;
+    position: absolute;
+    padding: 10px;
+    top: 400px;
+    left: 260px;
 }
 
 #gameBoxEvil {
+    border-style: double;
     position: absolute;
-    padding: 50px;
+    padding: 10px;
     top: 200px;
-    left: 610px;
+    left: 660px;
+}
+
+#gameBoxEvil2 {
+    border-style: double;
+    position: absolute;
+    padding: 10px;
+    top: 400px;
+    left: 660px;
+}
+
+#gameMap {
+    border-style: double;
+    position: absolute;
+    padding: 10px;
+    top: 200px;
+    left: 960px;
 }
 
 
 #playerStats {
+    border-style: double;
     position: absolute;
-    padding: 50px;
+    padding: 5px;
     top: 200px;
-    right: 210px;
+    right: 110px;
+    font-size: 12;
 }
 
 #gameStats {
+    border-style: double;
     position: absolute;
-    padding: 50px;
+    padding: 5px;
     top: 200px;
     right: 10px;
+    font-size: 12;
 }
