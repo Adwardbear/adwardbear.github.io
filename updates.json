@@ -1,7 +1,7 @@
 {
   "version": "0.1.2",
   "description": "beta v0.1.2\n\ncode updates to fix super long loading times\nfixed hide button\nadded changelog window\nadded the option to turn off autosaving, helpful to reduce lagg for new profiles\nNOTE: currently working on getting Apex A to a state i like, once i'm happy with it, promo A will be updated to the same.",
-  "changelog": "beta v0.1.1\nThe saving code has been updated to try prevent future corruption,\n please report to Ad if your save data was lost.\n\nBigger pictures now in Apex A1\nNew layout in Apex A1\nNew stat tracking in Apex A1\nRarity has now been added in Apex A1",
+  "changelog": "beta v0.1.1\n\nThe saving code has been updated to try prevent future corruption,\n please report to Ad if your save data was lost.\n\nBigger pictures now in Apex A1\nNew layout in Apex A1\nNew stat tracking in Apex A1\nRarity has now been added in Apex A1",
   "download_url": "https://drive.google.com/drive/folders/1ecDShLXv1PIavOfjhIFlCp6xAyetVkqR?usp=sharing",
   "PH": ""
 }
