@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "description": "Release v1.0.0\nWe made it!\nAdded A1a pack series.\nAdded Recommended booster pack to A1\nIn all honestly I can't remember the full changelog for this but it was mostly bug fixing and code cleanup. Enjoy!",
+  "description": "((IF YOU CAN SEE THIS, YOU ARE ON A OLD BRANCH, YOU WILL NO LONGER BE ALERTED TO UPDATES AFTER v1.0.0!))\nRelease v1.0.0\nWe made it!\nAdded A1a pack series.\nAdded Recommended booster pack to A1\nIn all honestly I can't remember the full changelog for this but it was mostly bug fixing and code cleanup. Enjoy!",
   "changelog": "beta v0.1.2\n\ncode updates to fix super long loading times\nfixed hide button\nadded changelog window\nadded the option to turn off autosaving, helpful to reduce lagg for new profiles\nNOTE: currently working on getting Apex A to a state i like, once i'm happy with it, promo A will be updated to the same.\n\nbeta v0.1.1\n\nThe saving code has been updated to try prevent future corruption,\n please report to Ad if your save data was lost.\n\nBigger pictures now in Apex A1\nNew layout in Apex A1\nNew stat tracking in Apex A1\nRarity has now been added in Apex A1",
   "download_url": "https://drive.google.com/drive/folders/1ecDShLXv1PIavOfjhIFlCp6xAyetVkqR?usp=sharing",
   "PH": ""
